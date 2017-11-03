@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectStickyFingers", "ProjectStickyFingers\ProjectStickyFingers.csproj", "{9E8AF23C-2789-48B7-AD85-7A9B68CE6B17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E8AF23C-2789-48B7-AD85-7A9B68CE6B17}.Debug|x86.ActiveCfg = Debug|x86
+		{9E8AF23C-2789-48B7-AD85-7A9B68CE6B17}.Debug|x86.Build.0 = Debug|x86
+		{9E8AF23C-2789-48B7-AD85-7A9B68CE6B17}.Release|x86.ActiveCfg = Release|x86
+		{9E8AF23C-2789-48B7-AD85-7A9B68CE6B17}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA6E59D5-0061-4E77-8889-422460783C3A}
+	EndGlobalSection
+EndGlobal
