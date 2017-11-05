@@ -11,13 +11,20 @@ namespace ProjectStickyFingers
 
 		public Game1()
 		{
-			graphics = new GraphicsDeviceManager(this);
+			graphics = new GraphicsDeviceManager(this)
+			{
+				PreferredBackBufferWidth = 1280,
+				PreferredBackBufferHeight = 720
+			};
+			graphics.ApplyChanges();
+
 			Content.RootDirectory = "Content";
 		}
 
 		protected override void Initialize()
 		{
-			// TODO: Add your initialization logic here
+			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(this.Window.Handle);
+			form.Location = new System.Drawing.Point(350, 150);
 
 			base.Initialize();
 		}
