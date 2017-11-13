@@ -9,7 +9,7 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		Texture2D testSprite;
+		TestSprite testSprite;
 
 
 		public Game1()
@@ -35,8 +35,9 @@ namespace ProjectStickyFingers
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			GameContent gameContent = new GameContent(Content);
 
-			testSprite = Content.Load<Texture2D>("walk/left0");
+			testSprite = new TestSprite(spriteBatch, gameContent);
 		}
 
 		protected override void UnloadContent(){}
@@ -57,7 +58,7 @@ namespace ProjectStickyFingers
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			spriteBatch.Begin();
-			spriteBatch.Draw(testSprite, new Rectangle(100, 100, 100, 100), Color.White);
+			testSprite.Draw();
 			spriteBatch.End();
 
 			base.Draw(gameTime);

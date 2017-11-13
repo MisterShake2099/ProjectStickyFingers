@@ -1,5 +1,4 @@
-﻿/*
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,13 +11,12 @@ namespace ProjectStickyFingers
 {
 	class GameContent
 	{
-		public Texture2D TestSprite { get; set; }
+		public Texture2D WalkLeft0 { get; set; }
 
 		public GameContent(ContentManager contentManager)
 		{
-			TestSprite = contentManager.Load<Texture2D>("simple mage walk/left 0");
+			WalkLeft0 = contentManager.Load<Texture2D>("walk/left0");
 		}
 
 	}
 }
-*/
