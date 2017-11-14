@@ -11,11 +11,13 @@ namespace ProjectStickyFingers
 {
 	class GameContent
 	{
-		public Texture2D WalkLeft0 { get; set; }
+		public Texture2D WalkLeft { get; set; }
+		public Texture2D WalkRight { get; set; }
 
 		public GameContent(ContentManager contentManager)
 		{
-			WalkLeft0 = contentManager.Load<Texture2D>("walk/left0");
+			WalkLeft = contentManager.Load<Texture2D>("walk_left");
+			WalkRight = contentManager.Load<Texture2D>("walk_right");
 		}
 
 	}

@@ -9,7 +9,7 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		TestSprite testSprite;
+		Sprite sprite;
 
 
 		public Game1()
@@ -37,7 +37,7 @@ namespace ProjectStickyFingers
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			GameContent gameContent = new GameContent(Content);
 
-			testSprite = new TestSprite(spriteBatch, gameContent);
+			sprite = new Sprite(spriteBatch, gameContent);
 		}
 
 		protected override void UnloadContent(){}
@@ -58,7 +58,7 @@ namespace ProjectStickyFingers
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			spriteBatch.Begin();
-			testSprite.Draw();
+			sprite.Draw(spriteBatch);
 			spriteBatch.End();
 
 			base.Draw(gameTime);
