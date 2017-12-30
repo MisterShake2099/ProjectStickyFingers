@@ -9,8 +9,6 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		Sprite sprite;
-
 
 		public Game1()
 		{
@@ -24,6 +22,7 @@ namespace ProjectStickyFingers
 			Content.RootDirectory = "Content";
 		}
 
+		
 		protected override void Initialize()
 		{
 			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(this.Window.Handle);
@@ -32,15 +31,18 @@ namespace ProjectStickyFingers
 			base.Initialize();
 		}
 
+
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			GameContent gameContent = new GameContent(Content);
+			//GameContent gameContent = new GameContent(Content);
 
-			sprite = new Sprite(spriteBatch, gameContent);
+			//sprite = new SpriteSheet(gameContent.WalkLeft, 102, 120, 5, 2);
 		}
 
+
 		protected override void UnloadContent(){}
+
 
 		protected override void Update(GameTime gameTime)
 		{
@@ -49,20 +51,23 @@ namespace ProjectStickyFingers
 				Exit();
 			}
 
+			//sprite.Update();
 
 			base.Update(gameTime);
 		}
+
 
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			spriteBatch.Begin();
-			sprite.Draw(spriteBatch);
+			//sprite.Draw(spriteBatch, 120, 120);
 			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}
-	}
 
+
+	}
 }
