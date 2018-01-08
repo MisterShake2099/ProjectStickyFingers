@@ -7,11 +7,11 @@ namespace ProjectStickyFingers
 	// of sub GameContent that contains only needed assets for a particular scene.
 	public class GameContent
 	{
-		public Texture2D AName { get; set; }
+		public Texture2D SimpleTestHouse { get; set; }
 
-		public GameContent(ContentManager contentManager)
+		public GameContent(ContentManager content)
 		{
-			AName = contentManager.Load<Texture2D>("Name");
+			SimpleTestHouse = content.Load<Texture2D>("simpleTestHouse");
 		}
 
 
