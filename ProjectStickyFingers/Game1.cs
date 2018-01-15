@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 
 namespace ProjectStickyFingers
 {
@@ -8,16 +10,19 @@ namespace ProjectStickyFingers
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		SceneManager sceneManager;
+		ContentHandler contentHandler;
 
-		Sprite sprite;
+		public static int width = 1280;
+		public static int height = 720;
 
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this)
 			{
-				PreferredBackBufferWidth = 1280,
-				PreferredBackBufferHeight = 720
+				PreferredBackBufferWidth = width,
+				PreferredBackBufferHeight = height
 			};
 			graphics.ApplyChanges();
 
@@ -36,10 +41,11 @@ namespace ProjectStickyFingers
 
 		protected override void LoadContent()
 		{
+			sceneManager = new SceneManager();
+			contentHandler = ContentHandler.GetInstance();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			GameContent gameContent = new GameContent(Content);
-
-			sprite = new Sprite(gameContent.SimpleTestHouse);
+			contentHandler.LoadTextures(Content);
+			sceneManager.LoadScene(new Scene_StartMenu());
 		}
 
 
@@ -53,7 +59,7 @@ namespace ProjectStickyFingers
 				Exit();
 			}
 
-			//sprite.Update();
+			sceneManager.Update();
 
 			base.Update(gameTime);
 		}
@@ -64,7 +70,7 @@ namespace ProjectStickyFingers
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			spriteBatch.Begin();
-			sprite.Draw(spriteBatch);
+			sceneManager.Draw(spriteBatch);
 			spriteBatch.End();
 
 			base.Draw(gameTime);

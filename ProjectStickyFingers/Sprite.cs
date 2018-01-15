@@ -3,18 +3,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ProjectStickyFingers
 {
-	class Sprite
+	public class Sprite
 	{
-		private Texture2D texture;
+		protected Texture2D _texture;
 
 		public Sprite(Texture2D texture)
 		{
-			this.texture = texture;
+			_texture = texture;
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public virtual void Update() {}
+
+		public virtual void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(texture, new Vector2(100, 100), Color.White);
+			spriteBatch.Draw(_texture, new Vector2(0, 0), Color.White);
 		}
 
 

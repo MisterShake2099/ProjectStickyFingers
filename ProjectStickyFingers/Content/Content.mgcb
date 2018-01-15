@@ -25,3 +25,10 @@
 /processorParam:TextureFormat=Color
 /build:simpleTestHouse.png
 
+#begin Fonts/MenuScreen_Title.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/MenuScreen_Title.spritefont
+
