@@ -6,23 +6,24 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ProjectStickyFingers
 {
-	public class Game1 : Game
+	class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		SceneManager sceneManager;
 		ContentHandler contentHandler;
+		InputManager inputManager;
 
-		public static int width = 1280;
-		public static int height = 720;
+		public const int WIDTH = 1280;
+		public const int HEIGHT = 720;
 
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this)
 			{
-				PreferredBackBufferWidth = width,
-				PreferredBackBufferHeight = height
+				PreferredBackBufferWidth = WIDTH,
+				PreferredBackBufferHeight = HEIGHT
 			};
 			graphics.ApplyChanges();
 
@@ -46,6 +47,7 @@ namespace ProjectStickyFingers
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			contentHandler.LoadTextures(Content);
 			sceneManager.LoadScene(new Scene_StartMenu());
+			inputManager = new InputManager();
 		}
 
 
@@ -59,7 +61,7 @@ namespace ProjectStickyFingers
 				Exit();
 			}
 
-			sceneManager.Update();
+			sceneManager.Update(gameTime);
 
 			base.Update(gameTime);
 		}
@@ -67,7 +69,7 @@ namespace ProjectStickyFingers
 
 		protected override void Draw(GameTime gameTime)
 		{
-			GraphicsDevice.Clear(Color.CornflowerBlue);
+			GraphicsDevice.Clear(Color.TransparentBlack);
 
 			spriteBatch.Begin();
 			sceneManager.Draw(spriteBatch);

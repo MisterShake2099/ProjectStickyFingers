@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 
 
@@ -11,8 +12,9 @@ namespace ProjectStickyFingers
 
 		public Scene(){}
 
-		public virtual void Draw(SpriteBatch spriteBatch){}
+		public virtual void Update(GameTime gameTime){}
 
+		public virtual void Draw(SpriteBatch spriteBatch){}
 	}
 
 }

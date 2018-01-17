@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace ProjectStickyFingers
@@ -7,6 +8,7 @@ namespace ProjectStickyFingers
 	{
 		private Scene _currentScene;
 		private Scene _nextScene;
+		private bool _sceneChange = false;
 
 
 		public SceneManager(){}
@@ -15,12 +17,19 @@ namespace ProjectStickyFingers
 		public void LoadScene(Scene sceneToLoad)
 		{
 			_nextScene = sceneToLoad;
+			_sceneChange = true;
 		}
 
 
-		public void Update()
+		public void Update(GameTime gameTime)
 		{
-			_currentScene = _nextScene;
+			if (_sceneChange)
+			{
+				_currentScene = _nextScene;
+				_sceneChange = false;
+			}
+
+			_currentScene.Update(gameTime);
 		}
 
 
