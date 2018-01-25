@@ -7,12 +7,11 @@ namespace ProjectStickyFingers
 	{
 		private static InputManager _instance;
 
-		public KeyboardState PreviousKeyState { get; set; }
-		public KeyboardState CurrentKeyState { get; set; }
+		public static KeyboardState PreviousKeyState { get; set; }
+		public static KeyboardState CurrentKeyState { get; set; }
 
 
 		public InputManager(){}
-
 
 		public static InputManager GetInstance()
 		{
@@ -24,16 +23,16 @@ namespace ProjectStickyFingers
 		}
 
 
-		public void Update()
+		public static void Update()
 		{
 			PreviousKeyState = CurrentKeyState;
 			CurrentKeyState = Keyboard.GetState();
 		}
 
 
-		public bool KeyPressed(Keys key)
+		public static bool KeyPressed(Keys key)
 		{
-			if(CurrentKeyState.IsKeyDown(key) && PreviousKeyState.IsKeyUp(key))
+			if (CurrentKeyState.IsKeyDown(key) && PreviousKeyState.IsKeyUp(key))
 			{
 				return true;
 			}
@@ -41,17 +40,17 @@ namespace ProjectStickyFingers
 		}
 
 
-		public bool KeyPressed(params Keys[] keys)
+		public static bool KeyPressed(params Keys[] keys)
 		{
-			foreach(Keys key in keys)
+			foreach (Keys key in keys)
 			{
-				if(KeyPressed(key)) { return true; }
+				if (KeyPressed(key)) { return true; }
 			}
 			return false;
 		}
 
 
-		public bool KeyReleased(Keys key)
+		public static bool KeyReleased(Keys key)
 		{
 			if (CurrentKeyState.IsKeyUp(key) && PreviousKeyState.IsKeyDown(key))
 			{
@@ -61,7 +60,7 @@ namespace ProjectStickyFingers
 		}
 
 
-		public bool KeyReleased(params Keys[] keys)
+		public static bool KeyReleased(params Keys[] keys)
 		{
 			foreach (Keys key in keys)
 			{
@@ -71,9 +70,9 @@ namespace ProjectStickyFingers
 		}
 
 
-		public bool KeyDown(Keys key)
+		public static bool KeyDown(Keys key)
 		{
-			if(CurrentKeyState.IsKeyDown(key))
+			if (CurrentKeyState.IsKeyDown(key))
 			{
 				return true;
 			}
@@ -81,9 +80,9 @@ namespace ProjectStickyFingers
 		}
 
 
-		public bool KeyDown(params Keys[] keys)
+		public static bool KeyDown(params Keys[] keys)
 		{
-			foreach(Keys key in keys)
+			foreach (Keys key in keys)
 			{
 				if (KeyDown(key)) { return true; }
 			}

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,31 +9,29 @@ namespace ProjectStickyFingers
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		SceneManager sceneManager;
-		ContentHandler contentHandler;
-		InputManager inputManager;
 
-		public const int WIDTH = 1280;
-		public const int HEIGHT = 720;
-
-
+		public const int WINDOW_WIDTH = 1280;
+		public const int WINDOW_HEIGHT = 720;
+		
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this)
 			{
-				PreferredBackBufferWidth = WIDTH,
-				PreferredBackBufferHeight = HEIGHT
+				PreferredBackBufferWidth = WINDOW_WIDTH,
+				PreferredBackBufferHeight = WINDOW_HEIGHT
 			};
 			graphics.ApplyChanges();
 
 			Content.RootDirectory = "Content";
 		}
 
-		
+
 		protected override void Initialize()
 		{
 			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(this.Window.Handle);
 			form.Location = new System.Drawing.Point(350, 150);
+
+			ContentHandler.Instance.SetContentManager(Content);
 
 			base.Initialize();
 		}
@@ -42,12 +39,14 @@ namespace ProjectStickyFingers
 
 		protected override void LoadContent()
 		{
-			sceneManager = new SceneManager();
-			contentHandler = ContentHandler.GetInstance();
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			contentHandler.LoadTextures(Content);
-			sceneManager.LoadScene(new Scene_StartMenu());
-			inputManager = new InputManager();
+
+			ContentHandler.Instance.LoadTextures();
+			StateManager.ChangeState(new State_StartMenu());
+
+
+
+			Components.Clear();
 		}
 
 
@@ -61,7 +60,7 @@ namespace ProjectStickyFingers
 				Exit();
 			}
 
-			sceneManager.Update(gameTime);
+			StateManager.Update(gameTime);
 
 			base.Update(gameTime);
 		}
@@ -69,10 +68,10 @@ namespace ProjectStickyFingers
 
 		protected override void Draw(GameTime gameTime)
 		{
-			GraphicsDevice.Clear(Color.TransparentBlack);
+			GraphicsDevice.Clear(Color.DarkOliveGreen);
 
 			spriteBatch.Begin();
-			sceneManager.Draw(spriteBatch);
+			StateManager.Draw(spriteBatch);
 			spriteBatch.End();
 
 			base.Draw(gameTime);
