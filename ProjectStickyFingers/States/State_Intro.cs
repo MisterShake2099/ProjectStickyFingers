@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ProjectStickyFingers.Sprites;
 
 
 namespace ProjectStickyFingers.States
@@ -9,7 +10,7 @@ namespace ProjectStickyFingers.States
 	{
 		private const string _continueText = "Hit 'Enter' to continue...";
 
-		private RenderedText _renderedText;
+		private TextSprite _renderedText;
 		private SpriteFont _font;
 		private string _explanationText;
 		private Rectangle _explanationBounds;
@@ -33,7 +34,7 @@ namespace ProjectStickyFingers.States
 			_explanationBounds = RenderedText.FullWindowRectangle();
 			_explanationBounds.Inflate(-160, -90);
 
-			_renderedText = new RenderedText(_font, _explanationText, Color.Gold, _explanationBounds, HorizontalAlignment.Center, VerticalAlignment.Top);
+			_renderedText = new TextSprite(_font, _explanationText, Color.Gold, _explanationBounds, HorizontalAlignment.Center, VerticalAlignment.Top);
 
 			_continue = new Button(_continueText, _font, new Vector2((Game1.WINDOW_WIDTH / 2) - (_font.MeasureString(_continueText).X / 2), Game1.WINDOW_HEIGHT - 75));
 		}

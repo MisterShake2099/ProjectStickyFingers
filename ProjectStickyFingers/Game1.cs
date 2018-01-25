@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ProjectStickyFingers.States;
 
 
 namespace ProjectStickyFingers
@@ -44,8 +45,6 @@ namespace ProjectStickyFingers
 			ContentHandler.Instance.LoadTextures();
 			StateManager.ChangeState(new State_StartMenu());
 
-
-
 			Components.Clear();
 		}
 
@@ -61,8 +60,6 @@ namespace ProjectStickyFingers
 			}
 
 			StateManager.Update(gameTime);
-
-			base.Update(gameTime);
 		}
 
 
@@ -73,8 +70,6 @@ namespace ProjectStickyFingers
 			spriteBatch.Begin();
 			StateManager.Draw(spriteBatch);
 			spriteBatch.End();
-
-			base.Draw(gameTime);
 		}
 
 

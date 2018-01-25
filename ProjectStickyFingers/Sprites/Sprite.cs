@@ -18,7 +18,7 @@ namespace ProjectStickyFingers.Sprites
 			_color = Color.White;
 		}
 
-		public abstract void Update(GameTime gameTime, Vector2 newPosition);
+		public abstract void Update(GameTime gameTime);
 
 		public abstract void Draw(SpriteBatch spriteBatch);
 	}

@@ -19,7 +19,7 @@ namespace ProjectStickyFingers.Sprites
 			return _spriteFont.MeasureString(_buttonText);
 		}
 
-		public override void Update(GameTime gameTime, Vector2 newPosition) {}
+		public override void Update(GameTime gameTime) {}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{

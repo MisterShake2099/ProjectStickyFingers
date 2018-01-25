@@ -17,7 +17,9 @@ namespace ProjectStickyFingers.Sprites
 			_position = position;
 		}
 
-		public override void Update(GameTime gameTime, Vector2 newPosition)
+		public override void Update(GameTime gameTime){}
+
+		public void Update(GameTime gameTime, Vector2 newPosition)
 		{
 			Move(newPosition);
 		}

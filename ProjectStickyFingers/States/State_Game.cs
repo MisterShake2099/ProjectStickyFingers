@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.Scenes;
 
 
@@ -18,13 +19,13 @@ namespace ProjectStickyFingers.States
 		private SpriteFont _font = ContentHandler.Instance.MenuScreen_Selections;
 
 		private Rectangle _datetimeRect;
-		private RenderedText _datetimeRenderer;
+		private TextSprite _datetimeRenderer;
 
 		private Rectangle _infoRect;
-		private RenderedText _infoRenderer;
+		private TextSprite _infoRenderer;
 
 		private Rectangle _textRect;
-		private RenderedText _textTextRenderer;
+		private TextSprite _textTextRenderer;
 
 		private Rectangle _visualRect;
 
@@ -34,30 +35,35 @@ namespace ProjectStickyFingers.States
 		private StaticSprite _insideTavernSprite;
 		private StaticSprite _guiFrameSprite;
 
-		RenderedText _tempText;
+		TextSprite _tempText;
 
 
 		public State_Game()
 		{
 			_datetimeRect = new Rectangle(28, 28, 330, 173);
 			_datetimeRect.Inflate(-3, 0);
-			_datetimeRenderer = new RenderedText(_font, DateTime.Now.Date.ToString() + "\n\nWeather: Cloudy", Color.Gold, _datetimeRect, HorizontalAlignment.Left, VerticalAlignment.Top);
+			_datetimeRenderer = new TextSprite(_font, DateTime.Now.Date.ToString() + "\n\nWeather: Cloudy", Color.Gold, _datetimeRect, HorizontalAlignment.Left, VerticalAlignment.Top);
 
 			_infoRect = new Rectangle(28, 192, 320, 501);
-			_infoRenderer = new RenderedText(_font, "Inventory | Stats", Color.Gold, _infoRect, HorizontalAlignment.Center, VerticalAlignment.Top);
+			_infoRenderer = new TextSprite(_font, "Inventory | Stats", Color.Gold, _infoRect, HorizontalAlignment.Center, VerticalAlignment.Top);
 			_infoRect.Inflate(0, -8);
-			_tempText = new RenderedText(_font, "___________", Color.Gold, _infoRect, HorizontalAlignment.Center, VerticalAlignment.Top);
+			_tempText = new TextSprite(_font, "___________", Color.Gold, _infoRect, HorizontalAlignment.Center, VerticalAlignment.Top);
+
 
 			_textRect = new Rectangle(367, 493, 884, 200);
 			_textRect.Inflate(-10, -5);
 			_textRect.Offset(5, 2);
-			_textTextRenderer = new RenderedText(_font, _dialoguePlaceholderText, Color.Gold, _textRect, HorizontalAlignment.Left, VerticalAlignment.Top);
+			_textTextRenderer = new TextSprite(_font, _dialoguePlaceholderText, Color.Gold, _textRect, HorizontalAlignment.Left, VerticalAlignment.Top);
+
+			_textScene = new Scene_MainText(_textRect);
+			_textScene.AddVisualElement(_textTextRenderer);
+
 
 			_visualRect = new Rectangle(367, 28, 884, 446);
 
 			_datetimeScene = new Scene_MainDatetime(_datetimeRect);
 			_infoScene = new Scene_MainInfo(_infoRect);
-			_textScene = new Scene_MainText(_textRect);
+
 			_visualScene = new Scene_MainVisual(_visualRect);
 
 			_insideTavern = ContentHandler.Instance.Game_TavernInside;
@@ -79,7 +85,9 @@ namespace ProjectStickyFingers.States
 			_datetimeRenderer.Draw(spriteBatch);
 			_infoRenderer.Draw(spriteBatch);
 			_tempText.Draw(spriteBatch);
-			_textTextRenderer.Draw(spriteBatch);
+
+			_textScene.Draw(spriteBatch);
+			//_textTextRenderer.Draw(spriteBatch);
 			_insideTavernSprite.Draw(spriteBatch);
 			_guiFrameSprite.Draw(spriteBatch);
 		}

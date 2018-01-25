@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ProjectStickyFingers.Sprites;
 
 
 namespace ProjectStickyFingers.Scenes
 {
 	class Scene_MainVisual : Scene
 	{
-		private List<Sprite> _spriteList;
-
-
 		public Scene_MainVisual(Rectangle renderSpace) : base(renderSpace)
 		{
 

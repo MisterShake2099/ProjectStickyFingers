@@ -10,7 +10,7 @@ namespace ProjectStickyFingers
 	public class RenderedText
 	{
 		private SpriteFont _spriteFont;
-		private string _text;
+		public string _text { get; set; }
 		private Color _color;
 		private Rectangle _renderBounds;
 		private HorizontalAlignment _hAlign;
@@ -26,11 +26,9 @@ namespace ProjectStickyFingers
 			_hAlign = hAlign;
 			_vAlign = vAlign;
 			_textOrigin = new Vector2(_renderBounds.X, _renderBounds.Y);
-
-			RenderText();
 		}
 
-		private void RenderText()
+		public Vector2 RenderText()
 		{
 			Vector2 textSize = _spriteFont.MeasureString(_text);
 
@@ -39,8 +37,13 @@ namespace ProjectStickyFingers
 				WordWrap();
 			}
 
-			textSize = _spriteFont.MeasureString(_text);
+			DetermineOrigin(_spriteFont.MeasureString(_text));
 
+			return _textOrigin;
+		}
+
+		public void DetermineOrigin(Vector2 textSize)
+		{
 			switch (_hAlign)
 			{
 				case HorizontalAlignment.Left:
@@ -91,16 +94,5 @@ namespace ProjectStickyFingers
 		}
 
 		public static Rectangle FullWindowRectangle() => new Rectangle(0, 0, Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT);
-
-		public void Update(GameTime gameTime, string newText)
-		{
-			_text = newText;
-		}
-
-		public void Draw(SpriteBatch spriteBatch)
-		{
-			spriteBatch.DrawString(_spriteFont, _text, _textOrigin, _color);
-		}
-
 	}
 }
