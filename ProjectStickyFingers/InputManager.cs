@@ -30,6 +30,12 @@ namespace ProjectStickyFingers
 		}
 
 
+		public static bool AnyKeyPressed()
+		{
+			return (CurrentKeyState.GetPressedKeys().Length > 0 && PreviousKeyState.GetPressedKeys().Length == 0);
+		}
+
+
 		public static bool KeyPressed(Keys key)
 		{
 			if (CurrentKeyState.IsKeyDown(key) && PreviousKeyState.IsKeyUp(key))
