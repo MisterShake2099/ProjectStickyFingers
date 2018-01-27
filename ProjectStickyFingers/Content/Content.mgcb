@@ -75,3 +75,17 @@
 /processorParam:TextureFormat=Color
 /build:tavern_inside.png
 
+#begin Fonts/Font_Alagard.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Font_Alagard.spritefont
+
+#begin Fonts/Font_Romulus.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Font_Romulus.spritefont
+

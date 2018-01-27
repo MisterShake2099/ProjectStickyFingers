@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.Scenes;
+using ProjectStickyFingers.ContentHandlers;
 
 
 namespace ProjectStickyFingers.States

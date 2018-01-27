@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectStickyFingers.Sprites;
-
+using ProjectStickyFingers.ContentHandlers;
 
 namespace ProjectStickyFingers.States
 {

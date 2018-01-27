@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectStickyFingers.Sprites;
+using ProjectStickyFingers.ContentHandlers;
 
 
 namespace ProjectStickyFingers.States
@@ -15,7 +16,6 @@ namespace ProjectStickyFingers.States
 		private string _explanationText;
 		private Rectangle _explanationBounds;
 		private Button _continue;
-		private float _timer = 0;
 
 
 		public State_Intro()
@@ -27,21 +27,10 @@ namespace ProjectStickyFingers.States
 			{
 				while (!reader.EndOfStream)
 				{
-					_explanationText += reader.ReadLine() + "\n";
+					_explanationText += (reader.ReadLine()).Replace("\\n", "\n");
 				}
-				_explanationText = _explanationText.ToString();
 			}
 
-			_explanationText = "Project: Sticky Fingers is the development name " +
-									"for this game about legitimate business dealings.\n\n" +
-									"In it, you assume the role of a humble merchant. " +
-									"One that happens to specialize in goods with an " +
-									"``interesting`` history of ownership.\n\n" +
-									"Make deals, establish clients, acquire inventory, and " +
-									"evade the grasp of legal sticklers that don't appreciate " +
-									"your novel take on entrepreneurship.\n\n" +
-									"Maybe you'll rule a brightness-challenged market " +
-									"some day... stranger things have happened.";
 			_explanationBounds = RenderedText.FullWindowRectangle();
 			_explanationBounds.Inflate(-160, -90);
 
@@ -54,13 +43,6 @@ namespace ProjectStickyFingers.States
 		public override void Update(GameTime gameTime)
 		{
 			InputManager.Update();
-
-			_timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-			if (_timer >= 1f)
-			{
-				_continue._isActive = !_continue._isActive;
-				_timer = 0f;
-			}
 
 			if (InputManager.AnyKeyPressed())
 			{

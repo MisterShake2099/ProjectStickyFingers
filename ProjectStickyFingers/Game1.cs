@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectStickyFingers.States;
+using ProjectStickyFingers.ContentHandlers;
 
 
 namespace ProjectStickyFingers
@@ -42,7 +43,7 @@ namespace ProjectStickyFingers
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			ContentHandler.Instance.LoadTextures();
+			ContentHandler.Instance.LoadAllContent();
 			StateManager.ChangeState(new State_StartMenu());
 
 			Components.Clear();
