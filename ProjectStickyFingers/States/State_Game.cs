@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.Scenes;
 using ProjectStickyFingers.ContentHandlers;
+using ProjectStickyFingers.Globals;
 
 
 namespace ProjectStickyFingers.States
@@ -17,7 +18,7 @@ namespace ProjectStickyFingers.States
 		private Scene _visualScene;
 		private Scene _textScene;
 
-		private SpriteFont _font = ContentHandler.Instance.MenuScreen_Selections;
+		private SpriteFont _font = ContentHandler.Instance.GetSpriteFont("MenuScreen_Selections");
 
 		private Rectangle _datetimeRect;
 		private TextSprite _datetimeRenderer;
@@ -67,10 +68,10 @@ namespace ProjectStickyFingers.States
 
 			_visualScene = new Scene_MainVisual(_visualRect);
 
-			_insideTavern = ContentHandler.Instance.Game_TavernInside;
+			_insideTavern = ContentHandler.Instance.GetTexture2D("Game_TavernInside");
 			_insideTavernSprite = new StaticSprite(_insideTavern, new Vector2(367, 28));
 
-			_guiFrame = ContentHandler.Instance.Game_GuiFrame;
+			_guiFrame = ContentHandler.Instance.GetTexture2D("Game_GuiFrame");
 			_guiFrameSprite = new StaticSprite(_guiFrame, Vector2.Zero);
 		}
 

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace ProjectStickyFingers
+namespace ProjectStickyFingers.Globals
 {
 	public enum HorizontalAlignment { Left, Center, Right }
 	public enum VerticalAlignment { Top, Center, Bottom }

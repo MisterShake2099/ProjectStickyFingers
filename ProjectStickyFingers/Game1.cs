@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectStickyFingers.States;
 using ProjectStickyFingers.ContentHandlers;
+using ProjectStickyFingers.Globals;
 
 
 namespace ProjectStickyFingers
@@ -34,6 +35,7 @@ namespace ProjectStickyFingers
 			form.Location = new System.Drawing.Point(350, 150);
 
 			ContentHandler.Instance.SetContentManager(Content);
+			InputManager.SetGameInstance(this);
 
 			base.Initialize();
 		}
@@ -55,9 +57,11 @@ namespace ProjectStickyFingers
 
 		protected override void Update(GameTime gameTime)
 		{
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			//if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			if (InputManager.KeyPressed(Keys.Escape))
 			{
-				Exit();
+				//Exit();
+				InputManager.Quit();
 			}
 
 			StateManager.Update(gameTime);

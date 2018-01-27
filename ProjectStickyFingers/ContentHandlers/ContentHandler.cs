@@ -34,11 +34,34 @@ namespace ProjectStickyFingers.ContentHandlers
 		public void SetContentManager(ContentManager contentManager)
 		{
 			_contentManager = contentManager;
+			_dialogue = new ContentHandler_Dialogue(_contentManager);
+		}
+
+
+		public SpriteFont GetSpriteFont(string name)
+		{
+			_fonts.TryGetValue(name, out SpriteFont font);
+			return font;
+		}
+
+
+		public Texture2D GetTexture2D(string name)
+		{
+			_textures.TryGetValue(name, out Texture2D texture);
+			return texture;
+		}
+
+
+		public SoundEffect GetSoundEffect(string name)
+		{
+			_sounds.TryGetValue(name, out SoundEffect sound);
+			return sound;
 		}
 
 
 		public void LoadAllContent()
 		{
+			_dialogue.LoadAllContent();
 			_fonts = LoadFonts();
 			_textures = LoadTextures();
 			_sounds = LoadSounds();

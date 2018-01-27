@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
+using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.ContentHandlers;
+
 
 namespace ProjectStickyFingers.States
 {
@@ -35,9 +38,9 @@ namespace ProjectStickyFingers.States
 		{
 			StateName = "StartMenu";
 
-			_title = ContentHandler.Instance.MenuScreen_Title;
-			_selections = ContentHandler.Instance.MenuScreen_Selections;
-			_selector = ContentHandler.Instance.MenuScreen_Selector;
+			_title = ContentHandler.Instance.GetSpriteFont("MenuScreen_Title");
+			_selections = ContentHandler.Instance.GetSpriteFont("MenuScreen_Selections");
+			_selector = ContentHandler.Instance.GetTexture2D("MenuScreen_Selector");
 
 			_titleDimensions = _title.MeasureString(TITLE_STRING);
 
@@ -80,9 +83,10 @@ namespace ProjectStickyFingers.States
 						StateManager.ChangeState(new State_Intro());
 						break;
 					case OnButton.OptionsButton:
+						// Change to Options scene or hover window.
 						break;
 					case OnButton.ExitButton:
-						
+						// Exit game.
 						break;
 				}
 			}

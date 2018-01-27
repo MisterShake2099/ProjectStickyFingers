@@ -1,17 +1,20 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 
-namespace ProjectStickyFingers
+namespace ProjectStickyFingers.Globals
 {
 	public class InputManager
 	{
+		private static Game _game;
 		private static InputManager _instance;
 
-		public static KeyboardState PreviousKeyState { get; set; }
-		public static KeyboardState CurrentKeyState { get; set; }
+		private static KeyboardState PreviousKeyState { get; set; }
+		private static KeyboardState CurrentKeyState { get; set; }
 
 
 		public InputManager(){}
+
 
 		public static InputManager GetInstance()
 		{
@@ -20,6 +23,18 @@ namespace ProjectStickyFingers
 				_instance = new InputManager();
 			}
 			return _instance;
+		}
+
+
+		public static void SetGameInstance(Game game)
+		{
+			_game = game;
+		}
+
+
+		public static void Quit()
+		{
+			_game.Exit();
 		}
 
 

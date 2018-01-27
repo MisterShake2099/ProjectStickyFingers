@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.ContentHandlers;
+using ProjectStickyFingers.Globals;
 
 
 namespace ProjectStickyFingers.States
@@ -20,7 +21,7 @@ namespace ProjectStickyFingers.States
 
 		public State_Intro()
 		{
-			_font = ContentHandler.Instance.MenuScreen_Selections;
+			_font = ContentHandler.Instance.GetSpriteFont("MenuScreen_Selections");
 
 			using (Stream stream = TitleContainer.OpenStream("Text/introText.txt"))
 			using (StreamReader reader = new StreamReader(stream))
