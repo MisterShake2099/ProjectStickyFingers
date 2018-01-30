@@ -1,37 +1,29 @@
-﻿using System.IO;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
+using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.ContentHandlers;
-using ProjectStickyFingers.Globals;
 
 
-namespace ProjectStickyFingers.States
+namespace ProjectStickyFingers.Scenes
 {
-	public class State_Intro : State
+	class Scene_IntroText : Scene
 	{
 		private const string _continueText = "Press the 'any' key to continue...";
 
-		private TextSprite _renderedText;
-		private SpriteFont _font;
-		private string _explanationText;
-		private Rectangle _explanationBounds;
 		private Button _continue;
+		private Rectangle _explanationBounds;
+		private string _explanationText;
+		private SpriteFont _font;
+		private TextSprite _renderedText;
 
 
-		public State_Intro()
+		public Scene_IntroText()
 		{
-			_font = ContentHandler.Instance.GetSpriteFont("MenuScreen_Selections");
+			_font = ContentHandler.Instance.GetSpriteFont("Font_Romulus");
 
-			using (Stream stream = TitleContainer.OpenStream("Text/introText.txt"))
-			using (StreamReader reader = new StreamReader(stream))
-			{
-				while (!reader.EndOfStream)
-				{
-					_explanationText += (reader.ReadLine()).Replace("\\n", "\n");
-				}
-			}
-
+			_explanationText = ContentHandler.Instance.GetDialogue("intro.explanation");
 			_explanationBounds = RenderedText.FullWindowRectangle();
 			_explanationBounds.Inflate(-160, -90);
 
@@ -40,17 +32,15 @@ namespace ProjectStickyFingers.States
 			_continue = new Button(_continueText, _font, new Vector2((Game1.WINDOW_WIDTH / 2) - (_font.MeasureString(_continueText).X / 2), Game1.WINDOW_HEIGHT - 75));
 		}
 
-
 		public override void Update(GameTime gameTime)
 		{
 			InputManager.Update();
 
 			if (InputManager.AnyKeyPressed())
 			{
-				StateManager.ChangeState(new State_Game());
+				SceneManager.ChangeScene(new Scene_Beginning());
 			}
 		}
-
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{

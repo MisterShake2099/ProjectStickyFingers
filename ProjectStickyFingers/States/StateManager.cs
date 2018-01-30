@@ -12,8 +12,8 @@ namespace ProjectStickyFingers.States
 		private static State _nextScene;
 		private static bool _sceneChange = false;
 
-
 		public StateManager(){}
+
 
 		public static StateManager GetInstance()
 		{
@@ -24,13 +24,11 @@ namespace ProjectStickyFingers.States
 			return _instance;
 		}
 
-
 		public static void ChangeState(State targetScene)
 		{
 			_nextScene = targetScene;
 			_sceneChange = true;
 		}
-
 
 		public static void Update(GameTime gameTime)
 		{
@@ -43,12 +41,10 @@ namespace ProjectStickyFingers.States
 			_currentScene.Update(gameTime);
 		}
 
-
 		public static void Draw(SpriteBatch spriteBatch)
 		{
 			_currentScene.Draw(spriteBatch);
 		}
 
 	}
-
 }

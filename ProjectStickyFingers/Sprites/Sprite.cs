@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace ProjectStickyFingers.Sprites
 {
 	public abstract class Sprite
@@ -10,6 +11,7 @@ namespace ProjectStickyFingers.Sprites
 		public Color _color { get; set; }
 
 		public Sprite(){}
+
 
 		public Sprite(Vector2 position, bool isActive = true)
 		{
@@ -21,5 +23,6 @@ namespace ProjectStickyFingers.Sprites
 		public abstract void Update(GameTime gameTime);
 
 		public abstract void Draw(SpriteBatch spriteBatch);
+
 	}
 }

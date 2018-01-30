@@ -1,28 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.ContentHandlers;
+using Microsoft.Xna.Framework.Input;
 
-
-namespace ProjectStickyFingers.States
+namespace ProjectStickyFingers.Scenes
 {
-	class State_StartMenu : State
+	class Scene_StartMenu : Scene
 	{
+		//TODO: REMOVE ALL CURRENT BUTTON STUFF AFTER FINISHING GUI STACK
 		enum OnButton { StartButton, OptionsButton, ExitButton }
 
 		private const string TITLE_STRING = "Project: Sticky Fingers";
 		private const string START_STRING = "Start";
 		private const string OPTIONS_STRING = "Options";
 		private const string EXIT_STRING = "Exit";
+
 		private SpriteFont _title;
 		private SpriteFont _selections;
 		private Texture2D _selector;
 		private Color _textColor = Color.Gold;
 		private Vector2 _titleDimensions;
-		
+
 		private Button _titleButton;
 
 		private Button _startButton;
@@ -34,17 +35,17 @@ namespace ProjectStickyFingers.States
 		private StaticSprite _selectorSprite;
 
 
-		public State_StartMenu()
+		public Scene_StartMenu()
 		{
-			StateName = "StartMenu";
+			_drawArea = new Rectangle(0, 0, Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT);
 
-			_title = ContentHandler.Instance.GetSpriteFont("MenuScreen_Title");
-			_selections = ContentHandler.Instance.GetSpriteFont("MenuScreen_Selections");
+			_title = ContentHandler.Instance.GetSpriteFont("Title_Romulus");
+			_selections = ContentHandler.Instance.GetSpriteFont("Font_Romulus");
 			_selector = ContentHandler.Instance.GetTexture2D("MenuScreen_Selector");
 
 			_titleDimensions = _title.MeasureString(TITLE_STRING);
 
-			// TODO: title shouldn't stay a button, probably
+			//TODO: title shouldn't stay a button
 			_titleButton = new Button(TITLE_STRING, _title, new Vector2((Game1.WINDOW_WIDTH / 2) - (_titleDimensions.X / 2), Game1.WINDOW_HEIGHT / 3))
 			{
 				_color = _textColor
@@ -80,7 +81,7 @@ namespace ProjectStickyFingers.States
 				switch (_onButton)
 				{
 					case OnButton.StartButton:
-						StateManager.ChangeState(new State_Intro());
+						SceneManager.ChangeScene(new Scene_IntroText());
 						break;
 					case OnButton.OptionsButton:
 						// Change to Options scene or hover window.
@@ -112,24 +113,24 @@ namespace ProjectStickyFingers.States
 			switch (_onButton)
 			{
 				case OnButton.StartButton:
-				{
-					_currentButton = _startButton;
-					break;
-				}
+					{
+						_currentButton = _startButton;
+						break;
+					}
 				case OnButton.OptionsButton:
-				{
-					_currentButton = _optionsButton;
-					break;
-				}
+					{
+						_currentButton = _optionsButton;
+						break;
+					}
 				case OnButton.ExitButton:
-				{
-					_currentButton = _exitButton;
-					break;
-				}
+					{
+						_currentButton = _exitButton;
+						break;
+					}
 			}
 
 			_selectorSprite.Update(gameTime, new Vector2(_currentButton._position.X - 50,
-														 _currentButton._position.Y + (_currentButton.GetButtonSize().Y / 2 ) - (_selectorSprite._texture.Height / 2) ));
+														 _currentButton._position.Y + (_currentButton.GetButtonSize().Y / 2) - (_selectorSprite._texture.Height / 2)));
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
@@ -138,11 +139,7 @@ namespace ProjectStickyFingers.States
 			_startButton.Draw(spriteBatch);
 			_optionsButton.Draw(spriteBatch);
 			_exitButton.Draw(spriteBatch);
-
-			//spriteBatch.Draw(_selector, _selectorPosition, Color.Gold);
 			_selectorSprite.Draw(spriteBatch);
-
-			//base.Draw(spriteBatch);
 		}
 
 	}

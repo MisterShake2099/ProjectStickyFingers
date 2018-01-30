@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ProjectStickyFingers.States;
-using ProjectStickyFingers.ContentHandlers;
+
+using ProjectStickyFingers.Scenes;
 using ProjectStickyFingers.Globals;
+using ProjectStickyFingers.ContentHandlers;
 
 
 namespace ProjectStickyFingers
@@ -13,8 +14,8 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		public const int WINDOW_WIDTH = 1280;
-		public const int WINDOW_HEIGHT = 720;
+		public const int WINDOW_WIDTH = 1680;
+		public const int WINDOW_HEIGHT = 1050;
 		
 		public Game1()
 		{
@@ -32,10 +33,11 @@ namespace ProjectStickyFingers
 		protected override void Initialize()
 		{
 			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(this.Window.Handle);
-			form.Location = new System.Drawing.Point(350, 150);
+			form.Location = new System.Drawing.Point(50, 50);
 
 			ContentHandler.Instance.SetContentManager(Content);
 			InputManager.SetGameInstance(this);
+			SceneManager.GetInstance();
 
 			base.Initialize();
 		}
@@ -46,7 +48,7 @@ namespace ProjectStickyFingers
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			ContentHandler.Instance.LoadAllContent();
-			StateManager.ChangeState(new State_StartMenu());
+			SceneManager.ChangeScene(new Scene_StartMenu());
 
 			Components.Clear();
 		}
@@ -64,7 +66,7 @@ namespace ProjectStickyFingers
 				InputManager.Quit();
 			}
 
-			StateManager.Update(gameTime);
+			SceneManager.GetInstance().Update(gameTime);
 		}
 
 
@@ -73,7 +75,7 @@ namespace ProjectStickyFingers
 			GraphicsDevice.Clear(Color.DarkOliveGreen);
 
 			spriteBatch.Begin();
-			StateManager.Draw(spriteBatch);
+			SceneManager.GetInstance().Draw(spriteBatch);
 			spriteBatch.End();
 		}
 

@@ -42,14 +42,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContentHandlers\ContentHandler_Dialogue.cs" />
-    <Compile Include="Scenes\Scene_MainDatetime.cs" />
+    <Compile Include="Scenes\SceneManager.cs" />
+    <Compile Include="Scenes\Scene_GUI.cs" />
+    <Compile Include="Scenes\Scene_IntroText.cs" />
+    <Compile Include="Scenes\Scene_StartMenu.cs" />
     <Compile Include="Sprites\TextSprite.cs" />
     <Compile Include="States\State_Game.cs" />
-    <Compile Include="States\State_Intro.cs" />
     <Compile Include="Scenes\Scene.cs" />
-    <Compile Include="Scenes\Scene_MainInfo.cs" />
-    <Compile Include="Scenes\Scene_MainText.cs" />
-    <Compile Include="Scenes\Scene_MainVisual.cs" />
+    <Compile Include="Scenes\Scene_Beginning.cs" />
     <Compile Include="Sprites\Button.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="ContentHandlers\ContentHandler.cs" />
@@ -58,7 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="States\State.cs" />
     <Compile Include="States\StateManager.cs" />
-    <Compile Include="States\State_StartMenu.cs" />
     <Compile Include="Sprites\Sprite.cs" />
     <Compile Include="Sprites\StaticSprite.cs" />
     <Compile Include="Globals\RenderedText.cs" />
@@ -110,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <None Include="Text\introText.txt">
+    <None Include="Text\introText.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

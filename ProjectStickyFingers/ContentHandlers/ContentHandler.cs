@@ -37,6 +37,12 @@ namespace ProjectStickyFingers.ContentHandlers
 			_dialogue = new ContentHandler_Dialogue(_contentManager);
 		}
 
+		
+		public string GetDialogue(string key)
+		{
+			return _dialogue.GetDialogue(key);
+		}
+
 
 		public SpriteFont GetSpriteFont(string name)
 		{
@@ -72,8 +78,7 @@ namespace ProjectStickyFingers.ContentHandlers
 		{
 			return new Dictionary<string, SpriteFont>
 			{
-				{ "MenuScreen_Title", _contentManager.Load<SpriteFont>("Fonts/MenuScreen_Title") },
-				{ "MenuScreen_Selections", _contentManager.Load<SpriteFont>("Fonts/MenuScreen_Selections") },
+				{ "Title_Romulus", _contentManager.Load<SpriteFont>("Fonts/Title_Romulus") },
 				{ "Font_Alagard", _contentManager.Load<SpriteFont>("Fonts/Font_Alagard") },
 				{ "Font_Romulus", _contentManager.Load<SpriteFont>("Fonts/Font_Romulus") }
 			};

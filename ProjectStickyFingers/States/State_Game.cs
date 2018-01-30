@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectStickyFingers.Sprites;
@@ -18,7 +19,7 @@ namespace ProjectStickyFingers.States
 		private Scene _visualScene;
 		private Scene _textScene;
 
-		private SpriteFont _font = ContentHandler.Instance.GetSpriteFont("MenuScreen_Selections");
+		private SpriteFont _font = ContentHandler.Instance.GetSpriteFont("Font_Romulus");
 
 		private Rectangle _datetimeRect;
 		private TextSprite _datetimeRenderer;
@@ -66,7 +67,7 @@ namespace ProjectStickyFingers.States
 			_datetimeScene = new Scene_MainDatetime(_datetimeRect);
 			_infoScene = new Scene_MainInfo(_infoRect);
 
-			_visualScene = new Scene_MainVisual(_visualRect);
+			_visualScene = new Scene_Beginning(_visualRect);
 
 			_insideTavern = ContentHandler.Instance.GetTexture2D("Game_TavernInside");
 			_insideTavernSprite = new StaticSprite(_insideTavern, new Vector2(367, 28));
@@ -97,3 +98,4 @@ namespace ProjectStickyFingers.States
 
 	}
 }
+*/
