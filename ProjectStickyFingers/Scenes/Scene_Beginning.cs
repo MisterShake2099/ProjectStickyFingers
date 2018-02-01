@@ -25,12 +25,9 @@ namespace ProjectStickyFingers.Scenes
 			_drawArea = new Rectangle(0, 0, Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT);
 
 			_guiFrame = ContentHandler.Instance.GetTexture2D("Game_GuiFrame");
-			//_guiFrameSprite = new StaticSprite(_guiFrame, _drawArea.Location.ToVector2());
 			_guiFrameSprite = new StaticSprite(_guiFrame, _drawArea.Center.ToVector2() - new Vector2(_guiFrame.Width / 2, _guiFrame.Height / 2));
 
 			_insideTavern = ContentHandler.Instance.GetTexture2D("Game_TavernInside");
-			//_insideTavernSprite = new StaticSprite(_insideTavern, _drawArea.Location.ToVector2());
-			//_insideTavernSprite = new StaticSprite(_insideTavern, _drawArea.Center.ToVector2() - new Vector2(_insideTavern.Width / 2, _insideTavern.Height / 2));
 			_insideTavernSprite = new StaticSprite(_insideTavern, new Vector2((_drawArea.Center.X) - (_insideTavern.Width / 2),
 																			  (_drawArea.Center.Y) - (_insideTavern.Height / 2)));
 		}
@@ -42,7 +39,6 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			//_insideTavernSprite.Draw(spriteBatch);
 			spriteBatch.Draw(_insideTavern, new Rectangle(_guiFrameSprite._position.ToPoint(), _guiFrameSprite._texture.Bounds.Size), Color.White);
 			_guiFrameSprite.Draw(spriteBatch);
 		}

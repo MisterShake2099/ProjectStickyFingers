@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectStickyFingers.Scenes
+namespace ProjectStickyFingers.GUI
 {
-	class Scene_GUI
+	class GUI_MainMenu
 	{
 	}
 }

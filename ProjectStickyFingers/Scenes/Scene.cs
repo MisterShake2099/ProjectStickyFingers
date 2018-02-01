@@ -7,7 +7,7 @@ namespace ProjectStickyFingers.Scenes
 	abstract class Scene
 	{
 		protected Rectangle _drawArea { get; set; }
-
+		
 
 		public abstract void Update(GameTime gameTime);
 
