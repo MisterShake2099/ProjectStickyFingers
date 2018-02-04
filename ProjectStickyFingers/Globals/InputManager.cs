@@ -1,12 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace ProjectStickyFingers.Globals
 {
 	public class InputManager
 	{
-		private static KeyboardState CurrentKeyState { get; set; }
-		private static KeyboardState PreviousKeyState { get; set; }
+		private KeyboardState CurrentKeyState { get; set; }
+		private KeyboardState PreviousKeyState { get; set; }
+
+		private MouseState CurrentMouseState { get; set; }
+		private MouseState PreviousMouseState { get; set; }
 
 		private static Game _game;
 		private static InputManager _instance;
@@ -22,29 +26,37 @@ namespace ProjectStickyFingers.Globals
 			}
 			return _instance;
 		}
-		public static void SetGameInstance(Game game)
+		public void SetGameInstance(Game game)
 		{
 			_game = game;
 		}
 
-		public static void Update()
+		public void Update()
 		{
 			PreviousKeyState = CurrentKeyState;
 			CurrentKeyState = Keyboard.GetState();
+
+			PreviousMouseState = CurrentMouseState;
+			CurrentMouseState = Mouse.GetState();
 		}
 
-		public static bool AnyKeyPressed()
+		public void Quit()
+		{
+			_game.Exit();
+		}
+
+		/* Keyboard */
+		public bool AnyKeyPressed()
 		{
 			return (CurrentKeyState.GetPressedKeys().Length > 0 &&
 					PreviousKeyState.GetPressedKeys().Length == 0);
 		}
 
-
-		public static bool KeyDown(Keys key)
+		public bool KeyDown(Keys key)
 		{
 			return (CurrentKeyState.IsKeyDown(key));
 		}
-		public static bool KeyDown(params Keys[] keys)
+		public bool KeyDown(params Keys[] keys)
 		{
 			foreach (Keys key in keys)
 			{
@@ -53,15 +65,11 @@ namespace ProjectStickyFingers.Globals
 			return false;
 		}
 
-		public static bool KeyPressed(Keys key)
+		public bool KeyPressed(Keys key)
 		{
-			if (CurrentKeyState.IsKeyDown(key) && PreviousKeyState.IsKeyUp(key))
-			{
-				return true;
-			}
-			return false;
+			return (CurrentKeyState.IsKeyDown(key) && PreviousKeyState.IsKeyUp(key));
 		}
-		public static bool KeyPressed(params Keys[] keys)
+		public bool KeyPressed(params Keys[] keys)
 		{
 			foreach (Keys key in keys)
 			{
@@ -70,11 +78,11 @@ namespace ProjectStickyFingers.Globals
 			return false;
 		}
 
-		public static bool KeyReleased(Keys key)
+		public bool KeyReleased(Keys key)
 		{
 			return (CurrentKeyState.IsKeyUp(key) && PreviousKeyState.IsKeyDown(key));
 		}
-		public static bool KeyReleased(params Keys[] keys)
+		public bool KeyReleased(params Keys[] keys)
 		{
 			foreach (Keys key in keys)
 			{
@@ -83,9 +91,37 @@ namespace ProjectStickyFingers.Globals
 			return false;
 		}
 
-		public static void Quit()
+		/* Mouse */
+		public Point GetMousePosition()
 		{
-			_game.Exit();
+			return CurrentMouseState.Position;
+		}
+
+		public bool MouseLeftDown()
+		{
+			return (CurrentMouseState.LeftButton == ButtonState.Pressed);
+		}
+		public bool MouseRightDown()
+		{
+			return (CurrentMouseState.RightButton == ButtonState.Pressed);
+		}
+
+		public bool MouseLeftPressed()
+		{
+			return (MouseLeftDown() && PreviousMouseState.LeftButton != ButtonState.Pressed);
+		}
+		public bool MouseRightPressed()
+		{
+			return (MouseRightDown() && PreviousMouseState.RightButton != ButtonState.Pressed);
+		}
+
+		public bool MouseLeftReleased()
+		{
+			return (!MouseLeftDown() && PreviousMouseState.LeftButton == ButtonState.Pressed);
+		}
+		public bool MouseRightReleased()
+		{
+			return (!MouseRightDown() && PreviousMouseState.RightButton == ButtonState.Pressed);
 		}
 
 	}

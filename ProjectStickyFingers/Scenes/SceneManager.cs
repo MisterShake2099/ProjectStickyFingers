@@ -3,7 +3,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using ProjectStickyFingers.GUI;
+using ProjectStickyFingers.GraphicUserInterface;
 
 namespace ProjectStickyFingers.Scenes
 {
@@ -11,7 +11,7 @@ namespace ProjectStickyFingers.Scenes
 	{
 		private static SceneManager _instance;
 		private Scene currentScene;
-		private Stack<GUI_Base> _guiStack = new Stack<GUI_Base>();
+		private Stack<GUI> _guiStack = new Stack<GUI>();
 
 
 		public static SceneManager GetInstance()
@@ -26,21 +26,31 @@ namespace ProjectStickyFingers.Scenes
 		public void Update(GameTime gameTime)
 		{
 			currentScene.Update(gameTime);
+
+			if (_guiStack.Count > 0)
+			{
+				_guiStack.Peek().Update(gameTime);
+			}
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			currentScene.Draw(spriteBatch);
+			
+			foreach (GUI gui in _guiStack)
+			{
+				gui.Draw(spriteBatch);
+			}
 		}
 
-		public static void ChangeScene(Scene newScene)
+		public void ChangeScene(Scene newScene)
 		{
 			if (_instance.currentScene != null)
 			{
-				// Unload currentScene
+				currentScene.Unload();
 			}
-			// Load newScene
 			_instance.currentScene = newScene;
+			currentScene.Load();
 		}
 
 		public void PopGUI()
@@ -48,7 +58,7 @@ namespace ProjectStickyFingers.Scenes
 			_guiStack.Pop();
 		}
 
-		public void PushGUI(GUI_Base newGui)
+		public void PushGUI(GUI newGui)
 		{
 			_guiStack.Push(newGui);
 		}

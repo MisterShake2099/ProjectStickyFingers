@@ -42,8 +42,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContentHandlers\ContentHandler_Dialogue.cs" />
+    <Compile Include="GraphicUserInterface\Widget.cs" />
+    <Compile Include="GraphicUserInterface\Widget_Button.cs" />
+    <Compile Include="GraphicUserInterface\GUI_Dialogue.cs" />
+    <Compile Include="GraphicUserInterface\GUI_MainMenu.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
-    <Compile Include="Scenes\Scene_GUI.cs" />
+    <Compile Include="GraphicUserInterface\GUI.cs" />
     <Compile Include="Scenes\Scene_IntroText.cs" />
     <Compile Include="Scenes\Scene_StartMenu.cs" />
     <Compile Include="Sprites\TextSprite.cs" />

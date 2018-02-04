@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.ContentHandlers;
+using ProjectStickyFingers.GraphicUserInterface;
 
 
 namespace ProjectStickyFingers.Scenes
@@ -34,11 +35,9 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Update(GameTime gameTime)
 		{
-			InputManager.Update();
-
-			if (InputManager.AnyKeyPressed())
+			if (InputManager.GetInstance().AnyKeyPressed())
 			{
-				SceneManager.ChangeScene(new Scene_Beginning());
+				SceneManager.GetInstance().ChangeScene(new Scene_Beginning());
 			}
 		}
 
@@ -48,5 +47,14 @@ namespace ProjectStickyFingers.Scenes
 			_continue.Draw(spriteBatch);
 		}
 
+		public override void Load()
+		{
+			SceneManager.GetInstance().PushGUI(new GUI_Dialogue());
+		}
+
+		public override void Unload()
+		{
+			SceneManager.GetInstance().PopGUI();
+		}
 	}
 }

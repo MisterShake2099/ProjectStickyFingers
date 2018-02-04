@@ -1,10 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.Sprites;
 using ProjectStickyFingers.ContentHandlers;
-using Microsoft.Xna.Framework.Input;
+using ProjectStickyFingers.GraphicUserInterface;
+
 
 namespace ProjectStickyFingers.Scenes
 {
@@ -51,6 +53,7 @@ namespace ProjectStickyFingers.Scenes
 				_color = _textColor
 			};
 
+			/*
 			_startButton = new Button(START_STRING, _selections, new Vector2(Game1.WINDOW_WIDTH / 2 - 35, Game1.WINDOW_HEIGHT / 2))
 			{
 				_color = _textColor
@@ -63,25 +66,25 @@ namespace ProjectStickyFingers.Scenes
 			{
 				_color = _textColor
 			};
+			
 
 			_selectorSprite = new StaticSprite(_selector, Vector2.Zero)
 			{
 				_color = _textColor
 			};
+			*/
 
 			_currentButton = _startButton;
 		}
 
 		public override void Update(GameTime gameTime)
 		{
-			InputManager.Update();
-
-			if (InputManager.KeyPressed(Keys.Enter))
+			if (InputManager.GetInstance().KeyPressed(Keys.Enter))
 			{
 				switch (_onButton)
 				{
 					case OnButton.StartButton:
-						SceneManager.ChangeScene(new Scene_IntroText());
+						SceneManager.GetInstance().ChangeScene(new Scene_IntroText());
 						break;
 					case OnButton.OptionsButton:
 						// Change to Options scene or hover window.
@@ -92,7 +95,7 @@ namespace ProjectStickyFingers.Scenes
 				}
 			}
 
-			if (InputManager.KeyPressed(Keys.S))
+			if (InputManager.GetInstance().KeyPressed(Keys.S))
 			{
 				_onButton += 1;
 				if (_onButton > OnButton.ExitButton)
@@ -101,7 +104,7 @@ namespace ProjectStickyFingers.Scenes
 				}
 			}
 
-			if (InputManager.KeyPressed(Keys.W))
+			if (InputManager.GetInstance().KeyPressed(Keys.W))
 			{
 				_onButton -= 1;
 				if (_onButton < OnButton.StartButton)
@@ -129,17 +132,27 @@ namespace ProjectStickyFingers.Scenes
 					}
 			}
 
-			_selectorSprite.Update(gameTime, new Vector2(_currentButton._position.X - 50,
-														 _currentButton._position.Y + (_currentButton.GetButtonSize().Y / 2) - (_selectorSprite._texture.Height / 2)));
+			//_selectorSprite.Update(gameTime, new Vector2(_currentButton._position.X - 50,
+			//											 _currentButton._position.Y + (_currentButton.GetButtonSize().Y / 2) - (_selectorSprite._texture.Height / 2)));
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			_titleButton.Draw(spriteBatch);
-			_startButton.Draw(spriteBatch);
-			_optionsButton.Draw(spriteBatch);
-			_exitButton.Draw(spriteBatch);
-			_selectorSprite.Draw(spriteBatch);
+			//_startButton.Draw(spriteBatch);
+			//_optionsButton.Draw(spriteBatch);
+			//_exitButton.Draw(spriteBatch);
+			//_selectorSprite.Draw(spriteBatch);
+		}
+
+		public override void Load()
+		{
+			SceneManager.GetInstance().PushGUI(new GUI_MainMenu());
+		}
+
+		public override void Unload()
+		{
+			base.Unload();
 		}
 
 	}

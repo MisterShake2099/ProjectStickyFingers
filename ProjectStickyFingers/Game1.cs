@@ -36,8 +36,9 @@ namespace ProjectStickyFingers
 			form.Location = new System.Drawing.Point(50, 50);
 
 			ContentHandler.Instance.SetContentManager(Content);
-			InputManager.SetGameInstance(this);
+			InputManager.GetInstance().SetGameInstance(this);
 			SceneManager.GetInstance();
+			this.IsMouseVisible = true;
 
 			base.Initialize();
 		}
@@ -48,7 +49,7 @@ namespace ProjectStickyFingers
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			ContentHandler.Instance.LoadAllContent();
-			SceneManager.ChangeScene(new Scene_StartMenu());
+			SceneManager.GetInstance().ChangeScene(new Scene_StartMenu());
 
 			Components.Clear();
 		}
@@ -59,11 +60,11 @@ namespace ProjectStickyFingers
 
 		protected override void Update(GameTime gameTime)
 		{
-			//if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-			if (InputManager.KeyPressed(Keys.Escape))
+			InputManager.GetInstance().Update();
+
+			if (InputManager.GetInstance().KeyPressed(Keys.Escape))
 			{
-				//Exit();
-				InputManager.Quit();
+				InputManager.GetInstance().Quit();
 			}
 
 			SceneManager.GetInstance().Update(gameTime);

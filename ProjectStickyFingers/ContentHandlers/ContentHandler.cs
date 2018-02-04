@@ -91,6 +91,7 @@ namespace ProjectStickyFingers.ContentHandlers
 			{
 				// Menu Screen
 				{ "MenuScreen_Selector", _contentManager.Load<Texture2D>("arrowSilver_right") },
+				{ "MenuScreen_StartButton", _contentManager.Load<Texture2D>("Buttons/prototype_startButton") },
 				
 				// Game Scene
 				{ "Game_GuiFrame", _contentManager.Load<Texture2D>("prototype_UI_frame") },

@@ -34,7 +34,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Update(GameTime gameTime)
 		{
-			InputManager.Update();
+
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
@@ -43,5 +43,14 @@ namespace ProjectStickyFingers.Scenes
 			_guiFrameSprite.Draw(spriteBatch);
 		}
 
+		public override void Load()
+		{
+
+		}
+
+		public override void Unload()
+		{
+
+		}
 	}
 }

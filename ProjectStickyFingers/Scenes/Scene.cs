@@ -10,11 +10,13 @@ namespace ProjectStickyFingers.Scenes
 		
 
 		public abstract void Update(GameTime gameTime);
-
 		public abstract void Draw(SpriteBatch spriteBatch);
+		public abstract void Load();
 
-		//public abstract void Load();
-		//public abstract void Unload();
+		public virtual void Unload()
+		{
+			SceneManager.GetInstance().PopGUI();
+		}
 
 	}
 }
