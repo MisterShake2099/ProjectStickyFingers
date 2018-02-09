@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
+
 
 namespace ProjectStickyFingers.Globals
 {
@@ -92,9 +92,13 @@ namespace ProjectStickyFingers.Globals
 		}
 
 		/* Mouse */
-		public Point GetMousePosition()
+		public Point MousePosition()
 		{
 			return CurrentMouseState.Position;
+		}
+		public bool MouseMoved()
+		{
+			return (PreviousMouseState.Position != CurrentMouseState.Position);
 		}
 
 		public bool MouseLeftDown()

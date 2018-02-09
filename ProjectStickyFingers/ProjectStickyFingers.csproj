@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ContentHandlers\ContentHandler_Dialogue.cs" />
     <Compile Include="GraphicUserInterface\Widget.cs" />
-    <Compile Include="GraphicUserInterface\Widget_Button.cs" />
+    <Compile Include="GraphicUserInterface\Widget_MenuButton.cs" />
     <Compile Include="GraphicUserInterface\GUI_Dialogue.cs" />
     <Compile Include="GraphicUserInterface\GUI_MainMenu.cs" />
     <Compile Include="Scenes\SceneManager.cs" />

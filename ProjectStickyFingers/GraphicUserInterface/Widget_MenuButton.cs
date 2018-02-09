@@ -1,17 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Globals;
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
-	class Widget_Button : Widget
+	class Widget_MenuButton : Widget
 	{
 		private Texture2D _texture;
 
 
-		public Widget_Button(GUI parent, Vector2 position, Texture2D texture, string name)
+		public Widget_MenuButton(GUI parent, Vector2 position, Texture2D texture, string name)
 			: base(parent, position, name)
 		{
 			_texture = texture;
@@ -21,7 +20,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override void Update(GameTime gameTime)
 		{
-			if (WidgetArea.Contains(InputManager.GetInstance().GetMousePosition()) && InputManager.GetInstance().MouseLeftPressed())
+			if (WidgetArea.Contains(InputManager.GetInstance().MousePosition()) && InputManager.GetInstance().MouseLeftPressed())
 			{
 				WidgetSelected(this);
 			}

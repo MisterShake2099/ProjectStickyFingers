@@ -10,8 +10,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 	{
 		protected GUI Parent { get; }
 		protected Vector2 Position { get; }
-		protected Rectangle WidgetArea { get; set; }
-		//public event EventHandler Selected;
+		public Rectangle WidgetArea { get; set; }
 		public event WidgetEvent Selected;
 		public string Name { get; }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using ProjectStickyFingers.Globals;
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
@@ -13,10 +13,15 @@ namespace ProjectStickyFingers.GraphicUserInterface
 	{
 		private enum _state { STATE, STATE2 }
 		private Vector2 _position { get; set; }
+		protected InputManager _inputManager { get; }
+		protected int CurrentlySelectedWidget { get; set; }
 		protected List<Widget> Widgets { get; set; }
 
 
-		public GUI() { }
+		public GUI()
+		{
+			_inputManager = InputManager.GetInstance();
+		}
 		
 		public virtual void Update(GameTime gameTime)
 		{
