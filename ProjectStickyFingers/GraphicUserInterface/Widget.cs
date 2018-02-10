@@ -10,8 +10,9 @@ namespace ProjectStickyFingers.GraphicUserInterface
 	{
 		protected GUI Parent { get; }
 		protected Vector2 Position { get; }
+		protected bool IsSelected { get; set; }
 		public Rectangle WidgetArea { get; set; }
-		public event WidgetEvent Selected;
+		public event WidgetEvent Activated;
 		public string Name { get; }
 
 		public Widget(GUI parent, Vector2 position, string name)
@@ -19,15 +20,16 @@ namespace ProjectStickyFingers.GraphicUserInterface
 			Parent = parent;
 			Position = position;
 			Name = name;
+			IsSelected = false;
 		}
 
 		public virtual void Update(GameTime gameTime){ }
 
 		public virtual void Draw(SpriteBatch spriteBatch) { }
 
-		public void WidgetSelected(Widget w)
+		public void WidgetActivated(Widget w)
 		{
-			Selected?.Invoke(w);
+			Activated?.Invoke(w);
 		}
 
 	}

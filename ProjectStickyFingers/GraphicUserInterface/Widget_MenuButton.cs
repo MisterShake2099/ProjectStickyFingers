@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Globals;
+using ProjectStickyFingers.ContentHandlers;
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
@@ -15,20 +16,27 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		{
 			_texture = texture;
 			WidgetArea = new Rectangle(position.ToPoint(), _texture.Bounds.Size);
-			Selected += Parent.HandleWidgetSelected;
+			Activated += Parent.HandleWidgetActivated;
 		}
 
 		public override void Update(GameTime gameTime)
 		{
-			if (WidgetArea.Contains(InputManager.GetInstance().MousePosition()) && InputManager.GetInstance().MouseLeftPressed())
+			IsSelected = (WidgetArea.Contains(InputManager.GetInstance().MousePosition()));
+			
+			if (IsSelected && InputManager.GetInstance().MouseLeftPressed())
 			{
-				WidgetSelected(this);
+				WidgetActivated(this);
 			}
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw(_texture, new Rectangle(Position.ToPoint(), _texture.Bounds.Size), Color.White);
+
+			if (IsSelected)
+			{
+				spriteBatch.Draw(ContentHandler.Instance.GetTexture2D("EmptyTexture"), new Rectangle(Position.ToPoint(), _texture.Bounds.Size), Color.White);
+			}
 		}
 
 	}

@@ -27,7 +27,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 			return null;
 		}
 
-		public override void HandleWidgetSelected(Widget caller)
+		public override void HandleWidgetActivated(Widget caller)
 		{
 			
 		}

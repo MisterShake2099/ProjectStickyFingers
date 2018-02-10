@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Scenes;
-using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.ContentHandlers;
 
 
@@ -24,41 +23,11 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override void Update(GameTime gameTime)
 		{
-			if (_inputManager.KeyPressed(Keys.Down, Keys.S))
-			{
-				CurrentlySelectedWidget = ++CurrentlySelectedWidget % 3;
-			}
-
-			if (_inputManager.KeyPressed(Keys.Up, Keys.W))
-			{
-				--CurrentlySelectedWidget;
-				if (CurrentlySelectedWidget < 0)
-				{
-					CurrentlySelectedWidget = Widgets.Count - 1;
-				}
-			}
-
-			if (_inputManager.MouseMoved())
-			{
-				foreach (Widget widget in Widgets)
-				{
-					if (widget.WidgetArea.Contains(_inputManager.MousePosition()))
-					{
-						CurrentlySelectedWidget = Widgets.FindIndex((Widget w) => { return w.Equals(widget); });
-					}
-				}
-			}
-
 			base.Update(gameTime);
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			Widget currentWidget = Widgets[CurrentlySelectedWidget];
-			spriteBatch.Draw(ContentHandler.Instance.GetTexture2D("MenuScreen_Selector"),
-							 currentWidget.WidgetArea.Location.ToVector2() + new Vector2(-50, (currentWidget.WidgetArea.Height / 2) - (ContentHandler.Instance.GetTexture2D("MenuScreen_Selector").Height / 2)),
-							 Color.White);
-
 			base.Draw(spriteBatch);
 		}
 
@@ -72,7 +41,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 			};
 		}
 
-		public override void HandleWidgetSelected(Widget caller)
+		public override void HandleWidgetActivated(Widget caller)
 		{
 			Widget found = Widgets.Find((Widget w) => { return w.Equals(caller); });
 

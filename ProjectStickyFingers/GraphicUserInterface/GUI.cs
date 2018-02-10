@@ -41,7 +41,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public abstract List<Widget> InitializeWidgets();
 
-		public abstract void HandleWidgetSelected(Widget caller);
+		public abstract void HandleWidgetActivated(Widget caller);
 
 	}
 }

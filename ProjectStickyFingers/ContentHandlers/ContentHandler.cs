@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -71,6 +72,8 @@ namespace ProjectStickyFingers.ContentHandlers
 			_fonts = LoadFonts();
 			_textures = LoadTextures();
 			_sounds = LoadSounds();
+
+			FinishEmptyTexture();
 		}
 
 
@@ -89,6 +92,8 @@ namespace ProjectStickyFingers.ContentHandlers
 		{
 			return new Dictionary<string, Texture2D>
 			{
+				{ "EmptyTexture", _contentManager.Load<Texture2D>("EmptyTexture") },
+
 				// Menu Screen
 				{ "MenuScreen_Selector", _contentManager.Load<Texture2D>("arrowSilver_right") },
 				{ "MenuScreen_StartButton", _contentManager.Load<Texture2D>("Buttons/prototype_startButton") },
@@ -109,6 +114,13 @@ namespace ProjectStickyFingers.ContentHandlers
 			{
 			
 			};
+		}
+
+		private void FinishEmptyTexture()
+		{
+			_textures.TryGetValue("EmptyTexture", out Texture2D temp);
+			temp.SetData(new Color[] { new Color(Color.Black, 150) });
+			
 		}
 
 
