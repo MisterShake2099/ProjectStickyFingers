@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
 namespace ProjectStickyFingers.Globals
 {
-	public enum HorizontalAlignment { Left, Center, Right }
-	public enum VerticalAlignment { Top, Center, Bottom }
+
 
 	public class RenderedText
 	{
@@ -71,28 +70,9 @@ namespace ProjectStickyFingers.Globals
 			}
 		}
 
-		public void WordWrap()
-		{
-			string finalString = string.Empty;
-			string[] words = _text.Split(' ');
-			string currentLine = "";
-			int maxLineLength = _renderBounds.Width;
-			int newLineLength;
-
-			foreach (string word in words)
-			{
-				newLineLength = (int)_spriteFont.MeasureString(currentLine + word).Length();
-				if (newLineLength > maxLineLength)
-				{
-					finalString += currentLine + "\n";
-					currentLine = "";
-				}
-				currentLine += word + " ";
-			}
-
-			_text = finalString + currentLine;
-		}
+		
 
 		public static Rectangle FullWindowRectangle() => new Rectangle(0, 0, Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT);
 	}
 }
+*/

@@ -14,8 +14,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		private enum _state { STATE, STATE2 }
 		private Vector2 _position { get; set; }
 		protected InputManager _inputManager { get; }
-		protected int CurrentlySelectedWidget { get; set; }
-		protected List<Widget> Widgets { get; set; }
+		protected Dictionary<string, Widget> Widgets { get; set; }
 
 
 		public GUI()
@@ -25,7 +24,8 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		
 		public virtual void Update(GameTime gameTime)
 		{
-			foreach (Widget widget in Widgets)
+			
+			foreach (Widget widget in Widgets.Values)
 			{
 				widget.Update(gameTime);
 			}
@@ -33,13 +33,13 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (Widget widget in Widgets)
+			foreach (Widget widget in Widgets.Values)
 			{
 				widget.Draw(spriteBatch);
 			}
 		}
 
-		public abstract List<Widget> InitializeWidgets();
+		public abstract Dictionary<string, Widget> InitializeWidgets();
 
 		public abstract void HandleWidgetActivated(Widget caller);
 

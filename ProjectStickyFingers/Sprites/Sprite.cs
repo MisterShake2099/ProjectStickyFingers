@@ -4,25 +4,47 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ProjectStickyFingers.Sprites
 {
-	public abstract class Sprite
+	public class Sprite
 	{
-		public Vector2 _position { get; set; }
-		public bool _isActive { get; set; }
-		public Color _color { get; set; }
+		protected Texture2D StaticTexture { get; set; }
+		protected Point Position { get; set; }
+		protected Point Size { get; set; }
 
-		public Sprite(){}
-
-
-		public Sprite(Vector2 position, bool isActive = true)
+		public bool IsActive { get; set; }
+		public Rectangle RenderBounds
 		{
-			_position = position;
-			_isActive = isActive;
-			_color = Color.White;
+			get
+			{
+				return new Rectangle(Position, Size);
+			}
 		}
 
-		public abstract void Update(GameTime gameTime);
 
-		public abstract void Draw(SpriteBatch spriteBatch);
+		public Sprite(Texture2D texture, Point position, bool isActive = true)
+			: this(texture, position, new Point(texture.Width, texture.Height), isActive){}
+
+		public Sprite(Texture2D texture, Point position, Point size, bool isActive = true)
+		{
+			Position = position;
+			Size = size;
+			StaticTexture = texture;
+			IsActive = isActive;
+		}
+
+		public virtual void Update(GameTime gameTime)
+		{
+			// Something that watches for an event indicating
+			// that something has been moved or adjusted such
+			// that a recalculation is needed.
+		}
+
+		public virtual void Draw(SpriteBatch spriteBatch)
+		{
+			if (IsActive)
+			{
+				spriteBatch.Draw(StaticTexture, RenderBounds, Color.White);
+			}
+		}
 
 	}
 }

@@ -31,19 +31,16 @@ namespace ProjectStickyFingers.ContentHandlers
 			}
 		}
 
-
 		public void SetContentManager(ContentManager contentManager)
 		{
 			_contentManager = contentManager;
 			_dialogue = new ContentHandler_Dialogue(_contentManager);
 		}
 
-		
 		public string GetDialogue(string key)
 		{
 			return _dialogue.GetDialogue(key);
 		}
-
 
 		public SpriteFont GetSpriteFont(string name)
 		{
@@ -51,20 +48,17 @@ namespace ProjectStickyFingers.ContentHandlers
 			return font;
 		}
 
-
 		public Texture2D GetTexture2D(string name)
 		{
 			_textures.TryGetValue(name, out Texture2D texture);
 			return texture;
 		}
 
-
 		public SoundEffect GetSoundEffect(string name)
 		{
 			_sounds.TryGetValue(name, out SoundEffect sound);
 			return sound;
 		}
-
 
 		public void LoadAllContent()
 		{
@@ -76,7 +70,6 @@ namespace ProjectStickyFingers.ContentHandlers
 			FinishEmptyTexture();
 		}
 
-
 		private Dictionary<string, SpriteFont> LoadFonts()
 		{
 			return new Dictionary<string, SpriteFont>
@@ -87,26 +80,26 @@ namespace ProjectStickyFingers.ContentHandlers
 			};
 		}
 
-
 		private Dictionary<string, Texture2D> LoadTextures()
 		{
 			return new Dictionary<string, Texture2D>
 			{
-				{ "EmptyTexture", _contentManager.Load<Texture2D>("EmptyTexture") },
+				// GUI - Agnostic
+				{ "GUI_sideInfo", _contentManager.Load<Texture2D>("GUI_sideInfo") },
 
 				// Menu Screen
 				{ "MenuScreen_Selector", _contentManager.Load<Texture2D>("arrowSilver_right") },
 				{ "MenuScreen_StartButton", _contentManager.Load<Texture2D>("Buttons/prototype_startButton") },
 				
 				// Game Scene
-				{ "Game_GuiFrame", _contentManager.Load<Texture2D>("prototype_UI_frame") },
-				{ "Game_TavernInside", _contentManager.Load<Texture2D>("tavern_inside") },
+				{ "Game_GuiFrame", _contentManager.Load<Texture2D>("testing sprites/prototype_UI_frame") },
+				{ "Game_TavernInside", _contentManager.Load<Texture2D>("testing sprites/tavern_inside") },
 
-				// Some Scene
-				{ "SimpleTestHouse", _contentManager.Load<Texture2D>("simpleTestHouse") }
+				// testing sprites
+				{ "EmptyTexture", _contentManager.Load<Texture2D>("testing sprites/EmptyTexture") },
+				{ "SimpleTestHouse", _contentManager.Load<Texture2D>("testing sprites/simpleTestHouse") }
 			};
 		}
-
 
 		private Dictionary<string, SoundEffect> LoadSounds()
 		{
@@ -120,9 +113,7 @@ namespace ProjectStickyFingers.ContentHandlers
 		{
 			_textures.TryGetValue("EmptyTexture", out Texture2D temp);
 			temp.SetData(new Color[] { new Color(Color.Black, 150) });
-			
 		}
-
 
 	}
 }

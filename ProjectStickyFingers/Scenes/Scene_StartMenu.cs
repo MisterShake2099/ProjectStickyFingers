@@ -14,8 +14,7 @@ namespace ProjectStickyFingers.Scenes
 
 		private SpriteFont _title;
 		private Vector2 _titleDimensions;
-
-		private Button _titleButton;
+		private Sprite_Text _gameTitle;
 		
 		
 		public Scene_StartMenu()
@@ -26,52 +25,15 @@ namespace ProjectStickyFingers.Scenes
 
 			_titleDimensions = _title.MeasureString(TITLE_STRING);
 
-			//TODO: title shouldn't stay a button
-			_titleButton = new Button(TITLE_STRING, _title, new Vector2((Game1.WINDOW_WIDTH / 2) - (_titleDimensions.X / 2), Game1.WINDOW_HEIGHT / 3))
-			{
-				_color = Color.Gold
-			};
+			_gameTitle = new Sprite_Text(new Vector2((Game1.WINDOW_WIDTH / 2) - (_titleDimensions.X / 2), Game1.WINDOW_HEIGHT / 3).ToPoint(),
+										 new Point(1000, 100), _title, TITLE_STRING, HorizontalAlignment.Center, VerticalAlignment.Center);
 		}
 
-		public override void Update(GameTime gameTime)
-		{
-			/*
-			if (InputManager.GetInstance().KeyPressed(Keys.S))
-			{
-				_onButton += 1;
-				if (_onButton > OnButton.ExitButton)
-				{
-					_onButton = OnButton.StartButton;
-				}
-			}
-
-			if (InputManager.GetInstance().KeyPressed(Keys.W))
-			{
-				_onButton -= 1;
-				if (_onButton < OnButton.StartButton)
-				{
-					_onButton = OnButton.ExitButton;
-				}
-			}
-
-			switch (_onButton)
-			{
-				case OnButton.StartButton:
-					_currentButton = _startButton;
-					break;
-				case OnButton.OptionsButton:
-					_currentButton = _optionsButton;
-					break;
-				case OnButton.ExitButton:
-					_currentButton = _exitButton;
-					break;
-			}
-			*/
-		}
+		public override void Update(GameTime gameTime){}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			_titleButton.Draw(spriteBatch);
+			_gameTitle.Draw(spriteBatch);
 		}
 
 		public override void Load()

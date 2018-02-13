@@ -23,7 +23,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 			IsSelected = false;
 		}
 
-		public virtual void Update(GameTime gameTime){ }
+		public virtual void Update(GameTime gameTime) { }
 
 		public virtual void Draw(SpriteBatch spriteBatch) { }
 

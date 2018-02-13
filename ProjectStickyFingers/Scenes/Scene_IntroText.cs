@@ -13,11 +13,11 @@ namespace ProjectStickyFingers.Scenes
 	{
 		private const string _continueText = "Press the 'any' key to continue...";
 
-		private Button _continue;
+		//private Button _continue;
 		private Rectangle _explanationBounds;
 		private string _explanationText;
 		private SpriteFont _font;
-		private TextSprite _renderedText;
+		private Sprite_Text _renderedText;
 
 
 		public Scene_IntroText()
@@ -25,36 +25,36 @@ namespace ProjectStickyFingers.Scenes
 			_font = ContentHandler.Instance.GetSpriteFont("Font_Romulus");
 
 			_explanationText = ContentHandler.Instance.GetDialogue("intro.explanation");
-			_explanationBounds = RenderedText.FullWindowRectangle();
+			//_explanationBounds = RenderedText.FullWindowRectangle();
 			_explanationBounds.Inflate(-160, -90);
 
-			_renderedText = new TextSprite(_font, _explanationText, Color.Gold, _explanationBounds, HorizontalAlignment.Center, VerticalAlignment.Top);
+			//_renderedText = new Sprite_Text(_font, _explanationText, Color.Gold, _explanationBounds, HorizontalAlignment.Center, VerticalAlignment.Top);
 
-			_continue = new Button(_continueText, _font, new Vector2((Game1.WINDOW_WIDTH / 2) - (_font.MeasureString(_continueText).X / 2), Game1.WINDOW_HEIGHT - 75));
+			//_continue = new Button(_continueText, _font, new Vector2((Game1.WINDOW_WIDTH / 2) - (_font.MeasureString(_continueText).X / 2), Game1.WINDOW_HEIGHT - 75));
 		}
 
 		public override void Update(GameTime gameTime)
 		{
 			if (InputManager.GetInstance().AnyKeyPressed())
 			{
-				SceneManager.GetInstance().ChangeScene(new Scene_Beginning());
+				SceneManager.GetInstance().ChangeScene(new Scene_TestTavern());
 			}
 		}
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			_renderedText.Draw(spriteBatch);
-			_continue.Draw(spriteBatch);
+			//_continue.Draw(spriteBatch);
 		}
 
 		public override void Load()
 		{
-			SceneManager.GetInstance().PushGUI(new GUI_Dialogue());
+			
 		}
 
 		public override void Unload()
 		{
-			SceneManager.GetInstance().PopGUI();
+			//SceneManager.GetInstance().PopGUI();
 		}
 	}
 }

@@ -42,19 +42,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContentHandlers\ContentHandler_Dialogue.cs" />
+    <Compile Include="GraphicUserInterface\GUI_Gameplay.cs" />
     <Compile Include="GraphicUserInterface\Widget.cs" />
-    <Compile Include="GraphicUserInterface\Widget_MenuButton.cs" />
-    <Compile Include="GraphicUserInterface\GUI_Dialogue.cs" />
+    <Compile Include="GraphicUserInterface\Widget_Button.cs" />
     <Compile Include="GraphicUserInterface\GUI_MainMenu.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="GraphicUserInterface\GUI.cs" />
     <Compile Include="Scenes\Scene_IntroText.cs" />
     <Compile Include="Scenes\Scene_StartMenu.cs" />
-    <Compile Include="Sprites\TextSprite.cs" />
+    <Compile Include="Scenes\Scene_Town.cs" />
+    <Compile Include="Sprites\Sprite_Text.cs" />
     <Compile Include="States\State_Game.cs" />
     <Compile Include="Scenes\Scene.cs" />
-    <Compile Include="Scenes\Scene_Beginning.cs" />
-    <Compile Include="Sprites\Button.cs" />
+    <Compile Include="Scenes\Scene_TestTavern.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="ContentHandlers\ContentHandler.cs" />
     <Compile Include="Globals\InputManager.cs" />
@@ -63,7 +63,6 @@
     <Compile Include="States\State.cs" />
     <Compile Include="States\StateManager.cs" />
     <Compile Include="Sprites\Sprite.cs" />
-    <Compile Include="Sprites\StaticSprite.cs" />
     <Compile Include="Globals\RenderedText.cs" />
   </ItemGroup>
   <ItemGroup>

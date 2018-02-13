@@ -6,12 +6,12 @@ using ProjectStickyFingers.ContentHandlers;
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
-	class Widget_MenuButton : Widget
+	class Widget_Button : Widget
 	{
 		private Texture2D _texture;
 
 
-		public Widget_MenuButton(GUI parent, Vector2 position, Texture2D texture, string name)
+		public Widget_Button(GUI parent, Vector2 position, Texture2D texture, string name)
 			: base(parent, position, name)
 		{
 			_texture = texture;
@@ -22,7 +22,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		public override void Update(GameTime gameTime)
 		{
 			IsSelected = (WidgetArea.Contains(InputManager.GetInstance().MousePosition()));
-			
+
 			if (IsSelected && InputManager.GetInstance().MouseLeftPressed())
 			{
 				WidgetActivated(this);
