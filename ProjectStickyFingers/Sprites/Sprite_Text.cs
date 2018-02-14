@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ProjectStickyFingers.Globals;
 
 
 namespace ProjectStickyFingers.Sprites
@@ -12,18 +11,20 @@ namespace ProjectStickyFingers.Sprites
 	{
 		private SpriteFont _spriteFont;
 		private string _text;
-		private Point _textOrigin;
+		private Vector2 _textOrigin;
 		private HorizontalAlignment _hAlign;
 		private VerticalAlignment _vAlign;
+		private Color _color;
 
 
-		public Sprite_Text(Point position, Point size, SpriteFont spriteFont, string text, HorizontalAlignment hAlign, VerticalAlignment vAlign)
+		public Sprite_Text(Vector2 position, Vector2 size, SpriteFont spriteFont, string text, HorizontalAlignment hAlign, VerticalAlignment vAlign, Color? color = null)
 			: base(null, position, size)
 		{
 			_spriteFont = spriteFont;
 			_text = text;
 			_hAlign = hAlign;
 			_vAlign = vAlign;
+			_color = color ?? Color.White;
 
 			WordWrap();
 			AdjustOrigin();
@@ -33,8 +34,8 @@ namespace ProjectStickyFingers.Sprites
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			// Might check for IsActive here, but maybe in the parent instead.
-			spriteBatch.DrawString(_spriteFont, _text, Position.ToVector2(), Color.White);
+			// TODO: Might check for IsActive here, but maybe in the parent instead.
+			spriteBatch.DrawString(_spriteFont, _text, Position, _color);
 		}
 
 		public void WordWrap()
@@ -42,7 +43,7 @@ namespace ProjectStickyFingers.Sprites
 			string finalString = string.Empty;
 			string currentLine = string.Empty;
 			string[] words = _text.Split(' ');
-			int maxLineLength = Size.X;
+			int maxLineLength = (int)Size.X;
 			int newLineLength;
 
 			foreach (string word in words)

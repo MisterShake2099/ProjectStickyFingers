@@ -7,23 +7,23 @@ namespace ProjectStickyFingers.Sprites
 	public class Sprite
 	{
 		protected Texture2D StaticTexture { get; set; }
-		protected Point Position { get; set; }
-		protected Point Size { get; set; }
+		protected Vector2 Position { get; set; }
+		protected Vector2 Size { get; set; }
 
 		public bool IsActive { get; set; }
 		public Rectangle RenderBounds
 		{
 			get
 			{
-				return new Rectangle(Position, Size);
+				return new Rectangle(Position.ToPoint(), Size.ToPoint());
 			}
 		}
 
 
-		public Sprite(Texture2D texture, Point position, bool isActive = true)
-			: this(texture, position, new Point(texture.Width, texture.Height), isActive){}
+		public Sprite(Texture2D texture, Vector2 position, bool isActive = true)
+			: this(texture, position, new Vector2(texture.Width, texture.Height), isActive){}
 
-		public Sprite(Texture2D texture, Point position, Point size, bool isActive = true)
+		public Sprite(Texture2D texture, Vector2 position, Vector2 size, bool isActive = true)
 		{
 			Position = position;
 			Size = size;

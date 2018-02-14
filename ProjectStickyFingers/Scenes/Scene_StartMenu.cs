@@ -25,8 +25,8 @@ namespace ProjectStickyFingers.Scenes
 
 			_titleDimensions = _title.MeasureString(TITLE_STRING);
 
-			_gameTitle = new Sprite_Text(new Vector2((Game1.WINDOW_WIDTH / 2) - (_titleDimensions.X / 2), Game1.WINDOW_HEIGHT / 3).ToPoint(),
-										 new Point(1000, 100), _title, TITLE_STRING, HorizontalAlignment.Center, VerticalAlignment.Center);
+			_gameTitle = new Sprite_Text(new Vector2((Game1.WINDOW_WIDTH / 2) - (_titleDimensions.X / 2), Game1.WINDOW_HEIGHT / 3),
+										 new Vector2(1000, 100), _title, TITLE_STRING, HorizontalAlignment.Center, VerticalAlignment.Center, Color.Gold);
 		}
 
 		public override void Update(GameTime gameTime){}

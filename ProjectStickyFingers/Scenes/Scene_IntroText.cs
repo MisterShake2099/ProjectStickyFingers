@@ -13,9 +13,7 @@ namespace ProjectStickyFingers.Scenes
 	{
 		private const string _continueText = "Press the 'any' key to continue...";
 
-		//private Button _continue;
-		private Rectangle _explanationBounds;
-		private string _explanationText;
+		private string _introExplanation;
 		private SpriteFont _font;
 		private Sprite_Text _renderedText;
 
@@ -24,11 +22,9 @@ namespace ProjectStickyFingers.Scenes
 		{
 			_font = ContentHandler.Instance.GetSpriteFont("Font_Romulus");
 
-			_explanationText = ContentHandler.Instance.GetDialogue("intro.explanation");
-			//_explanationBounds = RenderedText.FullWindowRectangle();
-			_explanationBounds.Inflate(-160, -90);
+			_introExplanation = ContentHandler.Instance.GetDialogue("intro.explanation");
 
-			//_renderedText = new Sprite_Text(_font, _explanationText, Color.Gold, _explanationBounds, HorizontalAlignment.Center, VerticalAlignment.Top);
+			_renderedText = new Sprite_Text(new Vector2(0, 0), new Vector2(Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT), _font, _introExplanation, HorizontalAlignment.Center, VerticalAlignment.Top, Color.Gold);
 
 			//_continue = new Button(_continueText, _font, new Vector2((Game1.WINDOW_WIDTH / 2) - (_font.MeasureString(_continueText).X / 2), Game1.WINDOW_HEIGHT - 75));
 		}

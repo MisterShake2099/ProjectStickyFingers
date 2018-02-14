@@ -46,11 +46,13 @@
     <Compile Include="GraphicUserInterface\Widget.cs" />
     <Compile Include="GraphicUserInterface\Widget_Button.cs" />
     <Compile Include="GraphicUserInterface\GUI_MainMenu.cs" />
+    <Compile Include="GraphicUserInterface\Widget_Panel.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="GraphicUserInterface\GUI.cs" />
     <Compile Include="Scenes\Scene_IntroText.cs" />
     <Compile Include="Scenes\Scene_StartMenu.cs" />
     <Compile Include="Scenes\Scene_Town.cs" />
+    <Compile Include="Sprites\Sprite_Animated.cs" />
     <Compile Include="Sprites\Sprite_Text.cs" />
     <Compile Include="States\State_Game.cs" />
     <Compile Include="Scenes\Scene.cs" />

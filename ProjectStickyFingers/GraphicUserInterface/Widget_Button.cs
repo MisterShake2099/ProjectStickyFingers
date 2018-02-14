@@ -3,19 +3,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.ContentHandlers;
+using ProjectStickyFingers.Sprites;
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
 	class Widget_Button : Widget
 	{
-		private Texture2D _texture;
+		private Sprite _sprite;
 
 
 		public Widget_Button(GUI parent, Vector2 position, Texture2D texture, string name)
 			: base(parent, position, name)
 		{
-			_texture = texture;
-			WidgetArea = new Rectangle(position.ToPoint(), _texture.Bounds.Size);
+			_sprite = new Sprite(texture, position);
+			WidgetArea = _sprite.RenderBounds;
 			Activated += Parent.HandleWidgetActivated;
 		}
 
@@ -31,11 +32,11 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(_texture, new Rectangle(Position.ToPoint(), _texture.Bounds.Size), Color.White);
+			_sprite.Draw(spriteBatch);
 
 			if (IsSelected)
 			{
-				spriteBatch.Draw(ContentHandler.Instance.GetTexture2D("EmptyTexture"), new Rectangle(Position.ToPoint(), _texture.Bounds.Size), Color.White);
+				spriteBatch.Draw(ContentHandler.Instance.GetTexture2D("EmptyTexture"), _sprite.RenderBounds, Color.White);
 			}
 		}
 
