@@ -15,7 +15,6 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		public GUI_Gameplay()
 		{
 			_sideInfo = ContentHandler.Instance.GetTexture2D("GUI_sideInfo");
-			_guiFrame = ContentHandler.Instance.GetTexture2D("Game_GuiFrame");
 
 			Widgets = InitializeWidgets();
 		}
@@ -27,7 +26,6 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			//spriteBatch.Draw(_tavernInside, new Rectangle(0, 0, Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT), Color.White);
 			base.Draw(spriteBatch);
 		}
 
@@ -40,8 +38,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		{
 			return new Dictionary<string, Widget>
 			{
-				{ "SideInfo", new Widget_Panel(this, new Vector2(0, 300), _sideInfo, "SideInfo") },
-				{ "GuiFrame", new Widget_Panel(this, new Vector2(0, 0), _guiFrame, "GuiFrame") }
+				{ "SideInfo", new Widget_Panel(this, new Vector2(0, 300), _sideInfo, "SideInfo") }
 			};
 		}
 

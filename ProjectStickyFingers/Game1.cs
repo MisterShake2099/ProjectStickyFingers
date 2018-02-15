@@ -14,8 +14,9 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		public const int WINDOW_WIDTH = 1680;
-		public const int WINDOW_HEIGHT = 1050;
+		public const int WINDOW_WIDTH = 1920;
+		public const int WINDOW_HEIGHT = 1080;
+
 		
 		public Game1()
 		{
@@ -24,25 +25,25 @@ namespace ProjectStickyFingers
 				PreferredBackBufferWidth = WINDOW_WIDTH,
 				PreferredBackBufferHeight = WINDOW_HEIGHT
 			};
+			graphics.IsFullScreen = false;
 			graphics.ApplyChanges();
 
 			Content.RootDirectory = "Content";
 		}
 
-
 		protected override void Initialize()
 		{
-			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(this.Window.Handle);
-			form.Location = new System.Drawing.Point(50, 50);
+			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(Window.Handle);
+			form.Location = new System.Drawing.Point(0, 60);
+			//form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
 			ContentHandler.Instance.SetContentManager(Content);
 			InputManager.GetInstance().SetGameInstance(this);
 			SceneManager.GetInstance();
-			this.IsMouseVisible = true;
+			IsMouseVisible = true;
 
 			base.Initialize();
 		}
-
 
 		protected override void LoadContent()
 		{
@@ -54,9 +55,7 @@ namespace ProjectStickyFingers
 			Components.Clear();
 		}
 
-
 		protected override void UnloadContent(){}
-
 
 		protected override void Update(GameTime gameTime)
 		{
@@ -70,16 +69,14 @@ namespace ProjectStickyFingers
 			SceneManager.GetInstance().Update(gameTime);
 		}
 
-
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.DarkOliveGreen);
 
-			spriteBatch.Begin();
+			spriteBatch.Begin(/*SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise*/);
 			SceneManager.GetInstance().Draw(spriteBatch);
 			spriteBatch.End();
 		}
-
 
 	}
 }

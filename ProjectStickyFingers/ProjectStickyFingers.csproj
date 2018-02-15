@@ -54,7 +54,6 @@
     <Compile Include="Scenes\Scene_Town.cs" />
     <Compile Include="Sprites\Sprite_Animated.cs" />
     <Compile Include="Sprites\Sprite_Text.cs" />
-    <Compile Include="States\State_Game.cs" />
     <Compile Include="Scenes\Scene.cs" />
     <Compile Include="Scenes\Scene_TestTavern.cs" />
     <Compile Include="Game1.cs" />

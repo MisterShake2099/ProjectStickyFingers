@@ -92,12 +92,12 @@ namespace ProjectStickyFingers.ContentHandlers
 				{ "MenuScreen_StartButton", _contentManager.Load<Texture2D>("Buttons/prototype_startButton") },
 				
 				// Game Scene
-				{ "Game_GuiFrame", _contentManager.Load<Texture2D>("testing sprites/prototype_UI_frame") },
 				{ "Game_TavernInside", _contentManager.Load<Texture2D>("testing sprites/tavern_inside") },
 
 				// testing sprites
 				{ "EmptyTexture", _contentManager.Load<Texture2D>("testing sprites/EmptyTexture") },
-				{ "SimpleTestHouse", _contentManager.Load<Texture2D>("testing sprites/simpleTestHouse") }
+				{ "SimpleTestHouse", _contentManager.Load<Texture2D>("testing sprites/simpleTestHouse") },
+				{ "CastleTown", _contentManager.Load<Texture2D>("testing sprites/castleTown") }
 			};
 		}
 

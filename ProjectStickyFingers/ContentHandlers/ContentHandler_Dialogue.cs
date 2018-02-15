@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
+﻿using System.Xml;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml;
+
+using Microsoft.Xna.Framework.Content;
 
 namespace ProjectStickyFingers
 {
