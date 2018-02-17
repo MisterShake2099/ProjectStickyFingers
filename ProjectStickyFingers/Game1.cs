@@ -14,8 +14,8 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		public const int WINDOW_WIDTH = 1920;
-		public const int WINDOW_HEIGHT = 1080;
+		public const int WINDOW_WIDTH = 1280;
+		public const int WINDOW_HEIGHT = 720;
 
 		
 		public Game1()
@@ -34,12 +34,13 @@ namespace ProjectStickyFingers
 		protected override void Initialize()
 		{
 			var form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(Window.Handle);
-			form.Location = new System.Drawing.Point(0, 60);
+			form.Location = new System.Drawing.Point(200, 200);
 			//form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
 			ContentHandler.Instance.SetContentManager(Content);
-			InputManager.GetInstance().SetGameInstance(this);
-			SceneManager.GetInstance();
+			InputManager.Instance.SetGameInstance(this);
+			GlobalValues.Instance.SetInstance(Content);
+			SceneManager.Instance.SetInstance();
 			IsMouseVisible = true;
 
 			base.Initialize();
@@ -50,7 +51,7 @@ namespace ProjectStickyFingers
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			ContentHandler.Instance.LoadAllContent();
-			SceneManager.GetInstance().ChangeScene(new Scene_StartMenu());
+			SceneManager.Instance.ChangeScene(new Scene_StartMenu());
 
 			Components.Clear();
 		}
@@ -59,14 +60,14 @@ namespace ProjectStickyFingers
 
 		protected override void Update(GameTime gameTime)
 		{
-			InputManager.GetInstance().Update();
+			InputManager.Instance.Update();
 
-			if (InputManager.GetInstance().KeyPressed(Keys.Escape))
+			if (InputManager.Instance.KeyPressed(Keys.Escape))
 			{
-				InputManager.GetInstance().Quit();
+				InputManager.Instance.Quit();
 			}
 
-			SceneManager.GetInstance().Update(gameTime);
+			SceneManager.Instance.Update(gameTime);
 		}
 
 		protected override void Draw(GameTime gameTime)
@@ -74,7 +75,7 @@ namespace ProjectStickyFingers
 			GraphicsDevice.Clear(Color.DarkOliveGreen);
 
 			spriteBatch.Begin(/*SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise*/);
-			SceneManager.GetInstance().Draw(spriteBatch);
+			SceneManager.Instance.Draw(spriteBatch);
 			spriteBatch.End();
 		}
 

@@ -84,9 +84,6 @@ namespace ProjectStickyFingers.ContentHandlers
 		{
 			return new Dictionary<string, Texture2D>
 			{
-				// GUI - Agnostic
-				{ "GUI_sideInfo", _contentManager.Load<Texture2D>("GUI_sideInfo") },
-
 				// Menu Screen
 				{ "MenuScreen_Selector", _contentManager.Load<Texture2D>("arrowSilver_right") },
 				{ "MenuScreen_StartButton", _contentManager.Load<Texture2D>("Buttons/prototype_startButton") },
@@ -112,7 +109,7 @@ namespace ProjectStickyFingers.ContentHandlers
 		private void FinishEmptyTexture()
 		{
 			_textures.TryGetValue("EmptyTexture", out Texture2D temp);
-			temp.SetData(new Color[] { new Color(Color.Black, 150) });
+			temp.SetData(new Color[] { new Color(Color.Black, 150) } );
 		}
 
 	}

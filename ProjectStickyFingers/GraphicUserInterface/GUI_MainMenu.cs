@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Scenes;
@@ -47,7 +46,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 			switch (caller.Name)
 			{
 				case "StartButton":
-					SceneManager.GetInstance().ChangeScene(new Scene_TestTavern());
+					SceneManager.Instance.ChangeScene(new Scene_Test());
 					break;
 				case "OptionsButton":
 					break;

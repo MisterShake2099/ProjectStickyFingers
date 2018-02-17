@@ -12,19 +12,22 @@ namespace ProjectStickyFingers.Globals
 		private MouseState CurrentMouseState { get; set; }
 		private MouseState PreviousMouseState { get; set; }
 
-		private static Game _game;
+		private Game _game;
 		private static InputManager _instance;
 		
 
 		public InputManager(){}
 
-		public static InputManager GetInstance()
+		public static InputManager Instance
 		{
-			if (_instance == null)
+			get
 			{
-				_instance = new InputManager();
+				if (_instance == null)
+				{
+					_instance = new InputManager();
+				}
+				return _instance;
 			}
-			return _instance;
 		}
 		public void SetGameInstance(Game game)
 		{

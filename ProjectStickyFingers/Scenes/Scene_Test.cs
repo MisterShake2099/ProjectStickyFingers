@@ -7,11 +7,11 @@ using ProjectStickyFingers.GraphicUserInterface;
 
 namespace ProjectStickyFingers.Scenes
 {
-	class Scene_TestTavern : Scene
+	class Scene_Test : Scene
 	{
 		private Sprite _castleTown;
 
-		public Scene_TestTavern()
+		public Scene_Test()
 		{
 			_castleTown = new Sprite(ContentHandler.Instance.GetTexture2D("CastleTown"), Vector2.Zero, new Vector2(Game1.WINDOW_WIDTH, Game1.WINDOW_HEIGHT) );
 		}
@@ -26,7 +26,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Load()
 		{
-			SceneManager.GetInstance().PushGUI(new GUI_Gameplay());
+			SceneManager.Instance.PushGUI(new GUI_Gameplay());
 		}
 
 		public override void Unload()

@@ -14,7 +14,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public virtual void Unload()
 		{
-			SceneManager.GetInstance().PopGUI();
+			SceneManager.Instance.PopGUI();
 		}
 
 	}

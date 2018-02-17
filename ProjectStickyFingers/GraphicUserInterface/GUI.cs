@@ -19,7 +19,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public GUI()
 		{
-			_inputManager = InputManager.GetInstance();
+			_inputManager = InputManager.Instance;
 		}
 		
 		public virtual void Update(GameTime gameTime)

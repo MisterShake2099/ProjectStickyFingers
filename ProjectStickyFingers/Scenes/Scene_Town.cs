@@ -27,7 +27,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Load()
 		{
-			SceneManager.GetInstance().PushGUI(new GUI_Gameplay());
+			SceneManager.Instance.PushGUI(new GUI_Gameplay());
 		}
 
 		public override void Unload()

@@ -22,9 +22,9 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override void Update(GameTime gameTime)
 		{
-			IsSelected = (WidgetArea.Contains(InputManager.GetInstance().MousePosition()));
+			IsSelected = (WidgetArea.Contains(InputManager.Instance.MousePosition()));
 
-			if (IsSelected && InputManager.GetInstance().MouseLeftPressed())
+			if (IsSelected && InputManager.Instance.MouseLeftPressed())
 			{
 				WidgetActivated(this);
 			}

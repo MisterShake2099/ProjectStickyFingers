@@ -31,9 +31,9 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Update(GameTime gameTime)
 		{
-			if (InputManager.GetInstance().AnyKeyPressed())
+			if (InputManager.Instance.AnyKeyPressed())
 			{
-				SceneManager.GetInstance().ChangeScene(new Scene_TestTavern());
+				SceneManager.Instance.ChangeScene(new Scene_Test());
 			}
 		}
 

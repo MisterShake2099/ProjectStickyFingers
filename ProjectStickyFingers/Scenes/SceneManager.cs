@@ -14,14 +14,18 @@ namespace ProjectStickyFingers.Scenes
 		private Stack<GUI> _guiStack = new Stack<GUI>();
 
 
-		public static SceneManager GetInstance()
+		public static SceneManager Instance
 		{
-			if (_instance == null)
+			get
 			{
-				_instance = new SceneManager();
+				if (_instance == null)
+				{
+					_instance = new SceneManager();
+				}
+				return _instance;
 			}
-			return _instance;
 		}
+		public void SetInstance() { }
 
 		public void Update(GameTime gameTime)
 		{

@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContentHandlers\ContentHandler_Dialogue.cs" />
+    <Compile Include="Globals\GlobalValues.cs" />
     <Compile Include="GraphicUserInterface\GUI_Gameplay.cs" />
     <Compile Include="GraphicUserInterface\Widget.cs" />
     <Compile Include="GraphicUserInterface\Widget_Button.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Sprites\Sprite_Animated.cs" />
     <Compile Include="Sprites\Sprite_Text.cs" />
     <Compile Include="Scenes\Scene.cs" />
-    <Compile Include="Scenes\Scene_TestTavern.cs" />
+    <Compile Include="Scenes\Scene_Test.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="ContentHandlers\ContentHandler.cs" />
     <Compile Include="Globals\InputManager.cs" />
@@ -64,7 +65,6 @@
     <Compile Include="States\State.cs" />
     <Compile Include="States\StateManager.cs" />
     <Compile Include="Sprites\Sprite.cs" />
-    <Compile Include="Globals\RenderedText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Extended, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
