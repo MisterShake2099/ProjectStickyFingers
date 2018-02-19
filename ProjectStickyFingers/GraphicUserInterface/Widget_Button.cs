@@ -10,8 +10,8 @@ namespace ProjectStickyFingers.GraphicUserInterface
 {
 	class Widget_Button : Widget
 	{
-		public Widget_Button(string name, GUI parent, Texture2D texture, Vector2 position, Vector2? offset, Vector2? origin, Vector2? size)
-			: base(name, parent, position, offset, origin, size)
+		public Widget_Button(string name, GUI parent, Texture2D texture, Vector2 position, Vector2? offset, Vector2? size)
+			: base(name, parent, position, offset, size)
 		{
 			Sprite = new Sprite(texture, Position + Offset, Size);
 

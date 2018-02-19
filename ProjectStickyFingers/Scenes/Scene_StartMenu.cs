@@ -33,7 +33,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			_gameTitle.Draw(spriteBatch, _gameTitle.RenderBounds.Location.ToVector2() );
+			_gameTitle.Draw(spriteBatch);
 		}
 
 		public override void Load()

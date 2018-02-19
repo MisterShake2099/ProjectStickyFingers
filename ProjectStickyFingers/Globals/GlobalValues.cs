@@ -61,5 +61,10 @@ namespace ProjectStickyFingers.Globals
 			RightMidAnchor = new Vector2(_width, _height / 2);
 		}
 
+		public Vector2 AdjustedLocation(Vector2 position, Vector2 textureSize)
+		{
+			return position -= new Vector2(textureSize.X / 2, textureSize.Y / 2);
+		}
+
 	}
 }

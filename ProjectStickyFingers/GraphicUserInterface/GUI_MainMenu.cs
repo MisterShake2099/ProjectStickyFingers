@@ -13,11 +13,13 @@ namespace ProjectStickyFingers.GraphicUserInterface
 	class GUI_MainMenu : GUI
 	{
 		private Texture2D _buttonTexture;
+		private GlobalValues _globalValues;
 
 
 		public GUI_MainMenu()
 		{
 			_buttonTexture = ContentHandler.Instance.GetTexture2D("MenuScreen_StartButton");
+			_globalValues = GlobalValues.Instance;
 
 			Widgets = InitializeWidgets();
 		}
@@ -36,14 +38,14 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		{
 			return new Dictionary<string, Widget>
 			{
-				{ "StartButton", new Widget_Button("StartButton", this, _buttonTexture, GlobalValues.Instance.MidAnchor,
-													Vector2.Zero, new Vector2(_buttonTexture.Width / 2, _buttonTexture.Height / 2), new Vector2(100f, 50f) ) },
+				{ "StartButton", new Widget_Button("StartButton", this, _buttonTexture, _globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
+													Vector2.Zero, new Vector2(100f, 50f) ) },
 
-				{ "OptionsButton", new Widget_Button("OptionsButton", this, _buttonTexture, GlobalValues.Instance.MidAnchor,
-													 new Vector2(0, 100), new Vector2(_buttonTexture.Width / 2, _buttonTexture.Height / 2), new Vector2(100f, 50f) ) },
+				{ "OptionsButton", new Widget_Button("OptionsButton", this, _buttonTexture, _globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
+													 new Vector2(0, 100), new Vector2(100f, 50f) ) },
 
-				{ "QuitButton", new Widget_Button("QuitButton", this, _buttonTexture, GlobalValues.Instance.MidAnchor,
-												  new Vector2(0, 200), new Vector2(_buttonTexture.Width / 2, _buttonTexture.Height / 2), new Vector2(100f, 50f) ) }
+				{ "QuitButton", new Widget_Button("QuitButton", this, _buttonTexture, _globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
+												  new Vector2(0, 200), new Vector2(100f, 50f) ) }
 			};
 		}
 

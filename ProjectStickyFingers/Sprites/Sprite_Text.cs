@@ -32,10 +32,10 @@ namespace ProjectStickyFingers.Sprites
 
 		public override void Update(GameTime gameTime) { }
 
-		public override void Draw(SpriteBatch spriteBatch, Vector2 origin)
+		public override void Draw(SpriteBatch spriteBatch)
 		{
 			//spriteBatch.DrawString(_spriteFont, _text, Position, _color);
-			spriteBatch.DrawString(_spriteFont, _text, Position, _color, 0f, origin, 1f, SpriteEffects.None, 0f);
+			spriteBatch.DrawString(_spriteFont, _text, Position, _color);
 		}
 
 		public void WordWrap()

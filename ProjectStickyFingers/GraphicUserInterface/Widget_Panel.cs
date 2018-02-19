@@ -10,7 +10,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 	{
 
 		public Widget_Panel(string name, GUI parent, Texture2D texture, Vector2 position, Vector2 size, Vector2? offset, Vector2? origin)
-			: base(name, parent, position, offset, origin, size)
+			: base(name, parent, position, offset, size)
 		{
 			Sprite = new Sprite(texture, Position + Offset, Size);
 		}

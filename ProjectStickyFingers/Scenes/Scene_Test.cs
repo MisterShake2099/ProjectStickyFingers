@@ -21,7 +21,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			_castleTown.Draw(spriteBatch, _castleTown.RenderBounds.Location.ToVector2() );
+			_castleTown.Draw(spriteBatch);
 		}
 
 		public override void Load()

@@ -38,9 +38,9 @@ namespace ProjectStickyFingers.Sprites
 			//if (IsMoved) { _currentRenderBounds = RenderBounds; }
 		}
 
-		public virtual void Draw(SpriteBatch spriteBatch, Vector2 origin)
+		public virtual void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(Texture, _currentRenderBounds, null, Color.White, 0f, origin, SpriteEffects.None, 0f);
+			spriteBatch.Draw(Texture, _currentRenderBounds, Color.White);
 		}
 
 	}
