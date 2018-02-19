@@ -9,13 +9,13 @@ namespace ProjectStickyFingers.Sprites
 		
 
 
-		public Sprite_Animated(Texture2D texture, Vector2 position, bool isActive = true)
-			: base(texture, position, isActive)
+		public Sprite_Animated(Texture2D texture, Vector2 position)
+			: base(texture, position)
 		{
 		}
 
-		public Sprite_Animated(Texture2D texture, Vector2 position, Vector2 size, bool isActive = true)
-			: base(texture, position, size, isActive)
+		public Sprite_Animated(Texture2D texture, Vector2 position, Vector2 size)
+			: base(texture, position, size)
 		{
 		}
 	}

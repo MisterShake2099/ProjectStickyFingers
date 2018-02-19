@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -18,7 +19,6 @@ namespace ProjectStickyFingers.ContentHandlers
 		private Dictionary<string, Texture2D> _textures;
 		private Dictionary<string, SoundEffect> _sounds;
 
-
 		public static ContentHandler Instance
 		{
 			get
@@ -31,10 +31,18 @@ namespace ProjectStickyFingers.ContentHandlers
 			}
 		}
 
+
 		public void SetContentManager(ContentManager contentManager)
 		{
 			_contentManager = contentManager;
 			_dialogue = new ContentHandler_Dialogue(_contentManager);
+		}
+
+		public Texture2D ColoredTexture(Color? color, int alpha = 255)
+		{
+			_textures.TryGetValue("EmptyTexture", out Texture2D coloredTexture);
+			coloredTexture.SetData(new Color[] { new Color(color ?? Color.Gray, alpha) } );
+			return coloredTexture;
 		}
 
 		public string GetDialogue(string key)
@@ -66,8 +74,6 @@ namespace ProjectStickyFingers.ContentHandlers
 			_fonts = LoadFonts();
 			_textures = LoadTextures();
 			_sounds = LoadSounds();
-
-			FinishEmptyTexture();
 		}
 
 		private Dictionary<string, SpriteFont> LoadFonts()
@@ -104,12 +110,6 @@ namespace ProjectStickyFingers.ContentHandlers
 			{
 			
 			};
-		}
-
-		private void FinishEmptyTexture()
-		{
-			_textures.TryGetValue("EmptyTexture", out Texture2D temp);
-			temp.SetData(new Color[] { new Color(Color.Black, 150) } );
 		}
 
 	}

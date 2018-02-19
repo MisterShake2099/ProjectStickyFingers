@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Scenes;
+using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.ContentHandlers;
 
 
@@ -35,9 +36,14 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		{
 			return new Dictionary<string, Widget>
 			{
-				{ "StartButton", new Widget_Button(this, new Vector2(Game1.WINDOW_WIDTH / 2 - _buttonTexture.Width / 2, Game1.WINDOW_HEIGHT / 2), _buttonTexture, "StartButton") },
-				{ "OptionsButton", new Widget_Button(this, new Vector2(Game1.WINDOW_WIDTH / 2 - _buttonTexture.Width / 2, Game1.WINDOW_HEIGHT / 2 + 100), _buttonTexture, "OptionsButton") },
-				{ "QuitButton", new Widget_Button(this, new Vector2(Game1.WINDOW_WIDTH / 2 - _buttonTexture.Width / 2, Game1.WINDOW_HEIGHT / 2 + 200), _buttonTexture, "QuitButton") },
+				{ "StartButton", new Widget_Button("StartButton", this, _buttonTexture, GlobalValues.Instance.MidAnchor,
+													Vector2.Zero, new Vector2(_buttonTexture.Width / 2, _buttonTexture.Height / 2), new Vector2(100f, 50f) ) },
+
+				{ "OptionsButton", new Widget_Button("OptionsButton", this, _buttonTexture, GlobalValues.Instance.MidAnchor,
+													 new Vector2(0, 100), new Vector2(_buttonTexture.Width / 2, _buttonTexture.Height / 2), new Vector2(100f, 50f) ) },
+
+				{ "QuitButton", new Widget_Button("QuitButton", this, _buttonTexture, GlobalValues.Instance.MidAnchor,
+												  new Vector2(0, 200), new Vector2(_buttonTexture.Width / 2, _buttonTexture.Height / 2), new Vector2(100f, 50f) ) }
 			};
 		}
 

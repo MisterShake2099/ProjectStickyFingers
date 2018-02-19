@@ -3,21 +3,17 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using ProjectStickyFingers.Globals;
-using ProjectStickyFingers.Sprites;
+using ProjectStickyFingers.ContentHandlers;
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
 	class GUI_Gameplay : GUI
 	{
-		private GlobalValues _globalValues;
-		private Texture2D _panelOne;
+		private Texture2D _panelOne = ContentHandler.Instance.ColoredTexture(null);
 
 
 		public GUI_Gameplay()
 		{
-			_globalValues = GlobalValues.Instance;
-			_panelOne = _globalValues.MakeGraybox(_globalValues.TopLeftAnchor, new Vector2(300, 200));
-
 			Widgets = InitializeWidgets();
 		}
 
@@ -40,7 +36,7 @@ namespace ProjectStickyFingers.GraphicUserInterface
 		{
 			return new Dictionary<string, Widget>
 			{
-				{ "PanelOne", new Widget_Panel(this, new Vector2(0, 300), _panelOne, "PanelOne") }
+				{ "PanelOne", new Widget_Panel("PanelOne", this, _panelOne, Vector2.Zero, new Vector2(300, 200), null, null ) }
 			};
 		}
 

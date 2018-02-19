@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using ProjectStickyFingers.Sprites;
-using ProjectStickyFingers.ContentHandlers;
 using Microsoft.Xna.Framework.Content;
+
 
 namespace ProjectStickyFingers.Globals
 {
@@ -25,7 +22,6 @@ namespace ProjectStickyFingers.Globals
 		public Vector2 TopRightAnchor { get; private set; }
 
 		public Vector2 MidAnchor { get; private set; } // might be unnecessary
-		private Texture2D _emptyPixel;
 
 
 		public GlobalValues() { }
@@ -41,15 +37,13 @@ namespace ProjectStickyFingers.Globals
 				return _instance;
 			}
 		}
+
 		public void SetInstance(ContentManager contentManager)
 		{
-			_emptyPixel = contentManager.Load<Texture2D>("testing sprites/EmptyTexture");
-			_emptyPixel.SetData(new Color[] { new Color(Color.Gray, 255) } );
-
-			GetAnchors();
+			SetAnchors();
 		}
 
-		public void GetAnchors()
+		public void SetAnchors()
 		{
 			_width = Game1.WINDOW_WIDTH;
 			_height = Game1.WINDOW_HEIGHT;
@@ -65,11 +59,6 @@ namespace ProjectStickyFingers.Globals
 			LeftMidAnchor = new Vector2(0, _height / 2);
 			MidAnchor = new Vector2(_width / 2, _height / 2);
 			RightMidAnchor = new Vector2(_width, _height / 2);
-		}
-
-		public Sprite MakeGraybox(Vector2 position, Vector2 size)
-		{
-			return new Sprite(_emptyPixel, position, size);
 		}
 
 	}

@@ -11,7 +11,7 @@ namespace ProjectStickyFingers.Sprites
 	{
 		private SpriteFont _spriteFont;
 		private string _text;
-		private Vector2 _textOrigin;
+		private Vector2 _textOrigin = Vector2.Zero;
 		private HorizontalAlignment _hAlign;
 		private VerticalAlignment _vAlign;
 		private Color _color;
@@ -30,12 +30,12 @@ namespace ProjectStickyFingers.Sprites
 			AdjustOrigin();
 		}
 
-		public override void Update(GameTime gameTime){}
+		public override void Update(GameTime gameTime) { }
 
-		public override void Draw(SpriteBatch spriteBatch)
+		public override void Draw(SpriteBatch spriteBatch, Vector2 origin)
 		{
-			// TODO: Might check for IsActive here, but maybe in the parent instead.
-			spriteBatch.DrawString(_spriteFont, _text, Position, _color);
+			//spriteBatch.DrawString(_spriteFont, _text, Position, _color);
+			spriteBatch.DrawString(_spriteFont, _text, Position, _color, 0f, origin, 1f, SpriteEffects.None, 0f);
 		}
 
 		public void WordWrap()
@@ -64,7 +64,7 @@ namespace ProjectStickyFingers.Sprites
 		 * based on alignment parameters and WordWrap(). */
 		public void AdjustOrigin()
 		{
-			Point textSize = _spriteFont.MeasureString(_text).ToPoint();
+			Vector2 length = _spriteFont.MeasureString(_text);
 
 			switch (_hAlign)
 			{
@@ -72,10 +72,10 @@ namespace ProjectStickyFingers.Sprites
 					_textOrigin.X = Position.X;
 					break;
 				case HorizontalAlignment.Center:
-					_textOrigin.X += (int)((Size.X - textSize.X) / 2);
+					_textOrigin.X += ((Size.X - length.X) / 2);
 					break;
 				case HorizontalAlignment.Right:
-					_textOrigin.X += (int)(Size.X - textSize.X);
+					_textOrigin.X += (Size.X - length.X);
 					break;
 			}
 
@@ -85,10 +85,10 @@ namespace ProjectStickyFingers.Sprites
 					_textOrigin.Y = Position.Y;
 					break;
 				case VerticalAlignment.Center:
-					_textOrigin.Y += (int)((Size.Y - textSize.Y) / 2);
+					_textOrigin.Y += ((Size.Y - length.Y) / 2);
 					break;
 				case VerticalAlignment.Bottom:
-					_textOrigin.Y += (int)(Size.Y - textSize.Y);
+					_textOrigin.Y += (Size.Y - length.Y);
 					break;
 			}
 		}

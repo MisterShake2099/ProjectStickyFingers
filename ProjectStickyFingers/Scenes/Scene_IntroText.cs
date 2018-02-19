@@ -39,7 +39,7 @@ namespace ProjectStickyFingers.Scenes
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			_renderedText.Draw(spriteBatch);
+			//_renderedText.Draw(spriteBatch);
 			//_continue.Draw(spriteBatch);
 		}
 

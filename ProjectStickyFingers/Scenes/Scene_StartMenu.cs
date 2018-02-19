@@ -29,11 +29,11 @@ namespace ProjectStickyFingers.Scenes
 										 new Vector2(1000, 100), _title, TITLE_STRING, HorizontalAlignment.Center, VerticalAlignment.Center, Color.Gold);
 		}
 
-		public override void Update(GameTime gameTime){}
+		public override void Update(GameTime gameTime) { }
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			_gameTitle.Draw(spriteBatch);
+			_gameTitle.Draw(spriteBatch, _gameTitle.RenderBounds.Location.ToVector2() );
 		}
 
 		public override void Load()

@@ -1,20 +1,18 @@
-﻿using System;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
+using ProjectStickyFingers.Sprites;
 
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
 	class Widget_Panel : Widget
 	{
-		private Texture2D _texture;
 
-
-		public Widget_Panel(GUI parent, Vector2 position, Texture2D texture, string name)
-			: base(parent, position, name)
+		public Widget_Panel(string name, GUI parent, Texture2D texture, Vector2 position, Vector2 size, Vector2? offset, Vector2? origin)
+			: base(name, parent, position, offset, origin, size)
 		{
-			_texture = texture;
+			Sprite = new Sprite(texture, Position + Offset, Size);
 		}
 
 		public override void Update(GameTime gameTime)
@@ -24,8 +22,6 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(_texture, Position, Color.White);
-
 			base.Draw(spriteBatch);
 		}
 

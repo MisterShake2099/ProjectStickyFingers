@@ -6,11 +6,12 @@ namespace ProjectStickyFingers.Sprites
 {
 	public class Sprite
 	{
-		protected Texture2D StaticTexture { get; set; }
+		private Rectangle _currentRenderBounds { get; set; }
+
+		protected Texture2D Texture { get; set; }
 		protected Vector2 Position { get; set; }
 		protected Vector2 Size { get; set; }
 
-		public bool IsActive { get; set; }
 		public Rectangle RenderBounds
 		{
 			get
@@ -20,30 +21,26 @@ namespace ProjectStickyFingers.Sprites
 		}
 
 
-		public Sprite(Texture2D texture, Vector2 position, bool isActive = true)
-			: this(texture, position, new Vector2(texture.Width, texture.Height), isActive){}
+		public Sprite(Texture2D texture, Vector2 position)
+			: this(texture, position, new Vector2(texture.Width, texture.Height)) { }
 
-		public Sprite(Texture2D texture, Vector2 position, Vector2 size, bool isActive = true)
+		public Sprite(Texture2D texture, Vector2 position, Vector2 size)
 		{
+			Texture = texture;
 			Position = position;
 			Size = size;
-			StaticTexture = texture;
-			IsActive = isActive;
+
+			_currentRenderBounds = RenderBounds;
 		}
 
 		public virtual void Update(GameTime gameTime)
 		{
-			// Something that watches for an event indicating
-			// that something has been moved or adjusted such
-			// that a recalculation is needed.
+			//if (IsMoved) { _currentRenderBounds = RenderBounds; }
 		}
 
-		public virtual void Draw(SpriteBatch spriteBatch)
+		public virtual void Draw(SpriteBatch spriteBatch, Vector2 origin)
 		{
-			if (IsActive)
-			{
-				spriteBatch.Draw(StaticTexture, RenderBounds, Color.White);
-			}
+			spriteBatch.Draw(Texture, _currentRenderBounds, null, Color.White, 0f, origin, SpriteEffects.None, 0f);
 		}
 
 	}

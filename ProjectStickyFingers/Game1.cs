@@ -14,8 +14,11 @@ namespace ProjectStickyFingers
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		public const int WINDOW_WIDTH = 1280;
-		public const int WINDOW_HEIGHT = 720;
+		// Using 640x360 (16:9) as a base resolution allows
+		// for scalling to 720p and 1080p without quality
+		// loss for pixel sprites.
+		public const int WINDOW_WIDTH = 640 * 2;
+		public const int WINDOW_HEIGHT = 360 * 2;
 
 		
 		public Game1()
