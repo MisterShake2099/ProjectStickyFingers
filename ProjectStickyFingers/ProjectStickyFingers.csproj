@@ -42,6 +42,38 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ContentHandlers\ContentHandler_Dialogue.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="GeonBit.UI\DrawUtils.cs" />
+    <Compile Include="GeonBit.UI\Entities\Button.cs" />
+    <Compile Include="GeonBit.UI\Entities\CheckBox.cs" />
+    <Compile Include="GeonBit.UI\Entities\ColoredRectangle.cs" />
+    <Compile Include="GeonBit.UI\Entities\DropDown.cs" />
+    <Compile Include="GeonBit.UI\Entities\Entity.cs" />
+    <Compile Include="GeonBit.UI\Entities\Header.cs" />
+    <Compile Include="GeonBit.UI\Entities\HorizontalLine.cs" />
+    <Compile Include="GeonBit.UI\Entities\Icon.cs" />
+    <Compile Include="GeonBit.UI\Entities\Image.cs" />
+    <Compile Include="GeonBit.UI\Entities\Label.cs" />
+    <Compile Include="GeonBit.UI\Entities\LineSpace.cs" />
+    <Compile Include="GeonBit.UI\Entities\MulticolorParagraph.cs" />
+    <Compile Include="GeonBit.UI\Entities\Panel.cs" />
+    <Compile Include="GeonBit.UI\Entities\PanelTabs.cs" />
+    <Compile Include="GeonBit.UI\Entities\Paragraph.cs" />
+    <Compile Include="GeonBit.UI\Entities\ProgressBar.cs" />
+    <Compile Include="GeonBit.UI\Entities\RadioButton.cs" />
+    <Compile Include="GeonBit.UI\Entities\RootPanel.cs" />
+    <Compile Include="GeonBit.UI\Entities\SelectList.cs" />
+    <Compile Include="GeonBit.UI\Entities\Slider.cs" />
+    <Compile Include="GeonBit.UI\Entities\StyleSheet.cs" />
+    <Compile Include="GeonBit.UI\Entities\TextInput.cs" />
+    <Compile Include="GeonBit.UI\Entities\TextInputValidators.cs" />
+    <Compile Include="GeonBit.UI\Entities\VerticalScrollbar.cs" />
+    <Compile Include="GeonBit.UI\Exceptions.cs" />
+    <Compile Include="GeonBit.UI\InputHelper.cs" />
+    <Compile Include="GeonBit.UI\Resources.cs" />
+    <Compile Include="GeonBit.UI\UserInterface.cs" />
+    <Compile Include="GeonBit.UI\Utils\MessageBox.cs" />
+    <Compile Include="GeonBit.UI\Utils\SimpleFileMenu.cs" />
     <Compile Include="Globals\GlobalValues.cs" />
     <Compile Include="GraphicUserInterface\GUI_Gameplay.cs" />
     <Compile Include="GraphicUserInterface\Widget.cs" />
@@ -51,7 +83,7 @@
     <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="GraphicUserInterface\GUI.cs" />
     <Compile Include="Scenes\Scene_IntroText.cs" />
-    <Compile Include="Scenes\Scene_StartMenu.cs" />
+    <Compile Include="Scenes\Scene_MainMenu.cs" />
     <Compile Include="Scenes\Scene_Town.cs" />
     <Compile Include="Sprites\Sprite_Animated.cs" />
     <Compile Include="Sprites\Sprite_Text.cs" />
@@ -67,6 +99,9 @@
     <Compile Include="Sprites\Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="DataTypes">
+      <HintPath>.\DataTypes.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Extended, Version=1.0.617.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoGame.Extended.1.0.617\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
     </Reference>

@@ -7,6 +7,9 @@ using ProjectStickyFingers.Scenes;
 using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.ContentHandlers;
 
+using GeonBit.UI;
+using GeonBit.UI.Entities;
+
 
 namespace ProjectStickyFingers.GraphicUserInterface
 {
@@ -18,6 +21,9 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public GUI_MainMenu()
 		{
+			Paragraph title = new Paragraph(text: "Project: Sticky Fingers", anchor: Anchor.Center, color: Color.Gold, scale: 1.7f, size: new Vector2(600, 100), offset: new Vector2(0, -100));
+			UserInterface.Active.AddEntity(title);
+
 			_buttonTexture = ContentHandler.Instance.GetTexture2D("MenuScreen_StartButton");
 			_globalValues = GlobalValues.Instance;
 
@@ -36,17 +42,31 @@ namespace ProjectStickyFingers.GraphicUserInterface
 
 		public override Dictionary<string, Widget> InitializeWidgets()
 		{
+			
+
+			/*
 			return new Dictionary<string, Widget>
 			{
-				{ "StartButton", new Widget_Button("StartButton", this, _buttonTexture, _globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
-													Vector2.Zero, new Vector2(100f, 50f) ) },
-
-				{ "OptionsButton", new Widget_Button("OptionsButton", this, _buttonTexture, _globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
-													 new Vector2(0, 100), new Vector2(100f, 50f) ) },
-
-				{ "QuitButton", new Widget_Button("QuitButton", this, _buttonTexture, _globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
-												  new Vector2(0, 200), new Vector2(100f, 50f) ) }
+				{ "StartButton", new Widget_Button("StartButton",
+													this,
+													_buttonTexture,
+													_globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
+													Vector2.Zero,
+													new Vector2(100f, 50f) ) },
+				{ "OptionsButton", new Widget_Button("OptionsButton",
+													this,
+													_buttonTexture,
+													_globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
+													new Vector2(0, 100),
+													new Vector2(100f, 50f) ) },
+				{ "QuitButton", new Widget_Button("QuitButton",
+													this,
+													_buttonTexture,
+													_globalValues.AdjustedLocation(_globalValues.MidAnchor, _buttonTexture.Bounds.Size.ToVector2()),
+													new Vector2(0, 200),
+													new Vector2(100f, 50f) ) }
 			};
+			*/
 		}
 
 		public override void HandleWidgetActivated(Widget caller)

@@ -34,7 +34,6 @@ namespace ProjectStickyFingers.Sprites
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			//spriteBatch.DrawString(_spriteFont, _text, Position, _color);
 			spriteBatch.DrawString(_spriteFont, _text, Position, _color);
 		}
 

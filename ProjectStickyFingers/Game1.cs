@@ -6,16 +6,19 @@ using ProjectStickyFingers.Scenes;
 using ProjectStickyFingers.Globals;
 using ProjectStickyFingers.ContentHandlers;
 
+using GeonBit.UI;
+using GeonBit.UI.Entities;
+
 
 namespace ProjectStickyFingers
 {
-	class Game1 : Game
+	public class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
 		// Using 640x360 (16:9) as a base resolution allows
-		// for scalling to 720p and 1080p without quality
+		// for scaling to 720p and 1080p without quality
 		// loss for pixel sprites.
 		public const int WINDOW_WIDTH = 640 * 2;
 		public const int WINDOW_HEIGHT = 360 * 2;
@@ -44,7 +47,11 @@ namespace ProjectStickyFingers
 			InputManager.Instance.SetGameInstance(this);
 			GlobalValues.Instance.SetInstance(Content);
 			SceneManager.Instance.SetInstance();
-			IsMouseVisible = true;
+			//IsMouseVisible = true;
+
+			//------------------------------------------------//
+			UserInterface.Initialize(Content, BuiltinThemes.hd);
+			//------------------------------------------------//
 
 			base.Initialize();
 		}
@@ -54,7 +61,7 @@ namespace ProjectStickyFingers
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			ContentHandler.Instance.LoadAllContent();
-			SceneManager.Instance.ChangeScene(new Scene_StartMenu());
+			SceneManager.Instance.ChangeScene(new Scene_MainMenu());
 
 			Components.Clear();
 		}
@@ -71,6 +78,10 @@ namespace ProjectStickyFingers
 			}
 
 			SceneManager.Instance.Update(gameTime);
+
+			//----------------------------------//
+			UserInterface.Active.Update(gameTime);
+			//----------------------------------//
 		}
 
 		protected override void Draw(GameTime gameTime)
@@ -79,7 +90,12 @@ namespace ProjectStickyFingers
 
 			spriteBatch.Begin(/*SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise*/);
 			SceneManager.Instance.Draw(spriteBatch);
+
 			spriteBatch.End();
+
+			//-----------------------------------//
+			UserInterface.Active.Draw(spriteBatch);
+			//-----------------------------------//
 		}
 
 	}
