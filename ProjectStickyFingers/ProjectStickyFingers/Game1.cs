@@ -2,7 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez;
-
+using Nez.Sprites;
+using ProjectStickyFingers.Scenes;
 
 namespace ProjectStickyFingers
 {
@@ -13,14 +14,18 @@ namespace ProjectStickyFingers
         
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            //graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
         protected override void Initialize()
         {
             base.Initialize();
-        }
+			Window.AllowUserResizing = true;
+			defaultSamplerState = SamplerState.PointClamp;
+			// set the scene so Nez can take over
+			scene = new Scene_TitleScreen();
+		}
 
         protected override void LoadContent()
         {
@@ -31,17 +36,19 @@ namespace ProjectStickyFingers
 
         protected override void Update(GameTime gameTime)
         {
+			
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 			{
 				Exit();
 			}
 
             base.Update(gameTime);
+			
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
 
             base.Draw(gameTime);
         }
