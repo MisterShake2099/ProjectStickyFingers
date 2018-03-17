@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
 using Nez.Sprites;
+using ProjectStickyFingers.Components;
+
 
 namespace ProjectStickyFingers.Scenes
 {
@@ -12,10 +14,9 @@ namespace ProjectStickyFingers.Scenes
 			base.initialize();
 
 			// create our Scene with the DefaultRenderer and a clear color of CornflowerBlue
-			//Scene myScene = Scene.
 			//createWithDefaultRenderer( Color.CornflowerBlue );
-			setDesignResolution( 1280, 720, Scene.SceneResolutionPolicy.None );
-			addRenderer( new DefaultRenderer());
+			setDesignResolution( 1280, 720, SceneResolutionPolicy.None );
+			addRenderer( new DefaultRenderer() );
 
 			// load a Texture. Note that the Texture is loaded via the scene.content class. This works just like the standard MonoGame Content class
 			// with the big difference being that it is tied to a Scene. When the Scene is unloaded so too is all the content loaded via myScene.content.
@@ -24,6 +25,7 @@ namespace ProjectStickyFingers.Scenes
 			// setup our Scene by adding some Entities
 			Entity entityOne = createEntity( "entity-one" );
 			entityOne.addComponent( new Sprite( texture ) );
+			entityOne.addComponent( new TestComponent() );
 
 			Entity entityTwo = createEntity( "entity-two" );
 			entityTwo.addComponent( new Sprite( texture ) );

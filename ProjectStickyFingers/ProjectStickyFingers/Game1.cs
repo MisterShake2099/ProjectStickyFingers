@@ -2,8 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez;
-using Nez.Sprites;
 using ProjectStickyFingers.Scenes;
+
 
 namespace ProjectStickyFingers
 {
@@ -48,8 +48,6 @@ namespace ProjectStickyFingers
 
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.CornflowerBlue);
-
             base.Draw(gameTime);
         }
 
