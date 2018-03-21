@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:ns="Microsoft.Xna.Framework">
+  <Asset Type="System.String[]">
+  	<!-- Can be a series of Item elements each with their own image
+  		 or a single Item element with a folder location. -->
+  	<Item>test/coin</Item>
+  </Asset>
+</XnaContent>
