@@ -1,47 +1,34 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Nez;
-using Nez.Sprites;
-using Nez.TextureAtlases;
+using ProjectStickyFingers.Scenes;
 
 namespace ProjectStickyFingers
 {
+	public enum Animation
+	{
+		coin
+	}
+
 	public class Game1 : Core
     {
-		public enum Animation
-		{
-			coin
-		}
+		Scene.SceneResolutionPolicy policy;
 
-        public Game1() : base() { }
+        public Game1() : base()
+		{
+			policy = Scene.SceneResolutionPolicy.ShowAllPixelPerfect;
+			defaultSamplerState = SamplerState.PointClamp;
+
+			/// Do this once at launch and any new Scene created will adopt the same settings
+			Scene.setDefaultDesignResolution( 1280, 720, policy );
+
+			Window.AllowUserResizing = true;
+		}
 
         protected override void Initialize()
         {
 			base.Initialize();
 
-			Scene scene = Scene.createWithDefaultRenderer( Color.CornflowerBlue );
-
-
-			Texture2D image = scene.content.Load<Texture2D>( "test/image" );
-			Entity entity = scene.createEntity( "image" );
-			entity.addComponent( new Sprite( image ) );
-			entity.transform.position = new Vector2( 400, 400 );
-
-
-			TextureAtlas atlas = scene.content.Load<TextureAtlas>( "bin/Windows/test/FirstAtlas" );
-			SpriteAnimation animation = atlas.getSpriteAnimation( "coin" );
-
-
-			Entity entity2 = scene.createEntity( "animation" );
-			entity2.addComponent( new Sprite<Animation>( Animation.coin, animation ) );
-			entity2.transform.position = new Vector2( 100, 100 );
-
-
-			Sprite<Animation> sprite = entity2.getComponent<Sprite<Animation>>();
-			sprite.play( Animation.coin );
-
-
-			Core.scene = scene;
+			scene = new Scene_MainMenu();
 		}
 
     }
