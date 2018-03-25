@@ -72,3 +72,27 @@
 /processorParam:flattenPaths=True
 /build:test/FirstAtlas.xml
 
+#begin skins/skin.json
+/importer:UISkinImporter
+/processor:UISkinProcessor
+/build:skins/skin.json
+
+#begin nez/NezDefaultBMFont.fnt
+/importer:BitmapFontImporter
+/processor:BitmapFontProcessor
+/processorParam:packTexturesIntoXnb=True
+/processorParam:compressTextures=False
+/build:nez/NezDefaultBMFont.fnt
+
+#begin nez/NezDefaultBMFont_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:nez/NezDefaultBMFont_0.png
+
