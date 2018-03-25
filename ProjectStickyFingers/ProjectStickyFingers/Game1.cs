@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using GeonBit.UI;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Nez;
 using ProjectStickyFingers.Scenes;
 
@@ -26,10 +28,19 @@ namespace ProjectStickyFingers
 
         protected override void Initialize()
         {
+			UserInterface.Initialize( content, BuiltinThemes.hd );
+
 			base.Initialize();
 
 			scene = new Scene_MainMenu();
 		}
 
-    }
+		protected override void Draw(GameTime gameTime)
+		{
+			//UserInterface.Active.Draw( sprite );
+
+			base.Draw( gameTime );
+		}
+
+	}
 }
