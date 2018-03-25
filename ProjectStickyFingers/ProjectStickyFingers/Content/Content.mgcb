@@ -3,72 +3,13 @@
 
 /outputDir:bin/$(Platform)
 /intermediateDir:obj/$(Platform)
-/platform:Windows
+/platform:DesktopGL
 /config:
-/profile:HiDef
+/profile:Reach
 /compress:False
 
 #-------------------------------- References --------------------------------#
 
-/reference:..\..\..\..\prime31-Nez-098259b\Nez.PipelineImporter\bin\Debug\Ionic.ZLib.dll
-/reference:..\..\..\..\prime31-Nez-098259b\Nez.PipelineImporter\bin\Debug\Newtonsoft.Json.dll
-/reference:..\..\..\..\prime31-Nez-098259b\Nez.PipelineImporter\bin\Debug\Nez.PipelineImporter.dll
 
 #---------------------------------- Content ---------------------------------#
-
-#begin test/coin/coin.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:test/coin/coin.png
-
-#begin test/coin/coin2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:test/coin/coin2.png
-
-#begin test/coin/coin3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:test/coin/coin3.png
-
-#begin test/image.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:test/image.png
-
-#begin test/FirstAtlas.xml
-/importer:XmlImporter
-/processor:TextureAtlasProcessor
-/processorParam:compressTexture=False
-/processorParam:animationFPS=10
-/processorParam:flattenPaths=True
-/build:test/FirstAtlas.xml
 
